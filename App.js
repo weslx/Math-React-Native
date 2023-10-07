@@ -1,8 +1,8 @@
 import { StyleSheet, View, Image, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import FundamentalScreen from './FundamentaTela';
-import MedioTela from './MedioTela';
+import FundamentalScreen from './src/FundamentalTela'
+import MedioTela from './src/MedioTela';
 import colors from './colors';
 
 const Stack = createStackNavigator();
