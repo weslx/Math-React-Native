@@ -1,7 +1,7 @@
-import colors from "../../colors";
+import colors from "../../../colors";
 import React, { useState } from "react";
-import { View, Text, TextInput, StyleSheet, Button } from "react-native";
-
+import { View, Text, TextInput, Button } from "react-native";
+import styles from "./SenoStyle";
 const CongruencCalculator = () => {
   const [ladoA, setLadoA] = useState("");
   const [ladoB, setLadoB] = useState("");
@@ -121,28 +121,5 @@ const CongruencCalculator = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  center: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: colors.background,
-  },
-  inputs: {
-    borderColor: colors.primary,
-    borderWidth: 1,
-    borderRadius: 10,
-    textAlign: "center",
-    color: colors.primary,
-    marginBottom: 10,
-    width: 200,
-    height: 50,
-  },
-  font: {
-    fontWeight: "bold",
-    fontSize: 25,
-  },
-});
 
 export default CongruencCalculator;

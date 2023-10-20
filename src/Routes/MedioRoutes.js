@@ -4,7 +4,7 @@ import MedioTela from "../MedioTela";
 import FundamentalScreen from "../FundamentalTela";
 import HomeScreen from "../HomeScreen.js";
 import colors from "../../colors";
-import CongruencCalculator from "../Medio/congruenc";
+import CongruencCalculator from "../Medio/LeiDeSeno/leideseno";
 import JurosCompostos from "../Medio/JurosCompostos";
 import JurosSimples from "../Medio/JurosSimples";
 
@@ -14,8 +14,8 @@ function MedioRoutes() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Juros Simples"
-        component={JurosSimples}
+        name="Inicio"
+        component={HomeScreen}
         options={{
           headerStyle: { backgroundColor: colors.primary },
           headerTintColor: "#fff",
@@ -23,8 +23,8 @@ function MedioRoutes() {
         }}
       />
       <Stack.Screen
-        name="Inicio"
-        component={HomeScreen}
+        name="Juros Simples"
+        component={JurosSimples}
         options={{
           headerStyle: { backgroundColor: colors.primary },
           headerTintColor: "#fff",
