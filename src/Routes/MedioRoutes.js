@@ -4,11 +4,8 @@ import MedioTela from "../MedioTela";
 import FundamentalScreen from "../FundamentalTela";
 import HomeScreen from "../HomeScreen.js";
 import colors from "../../colors";
-<<<<<<< Updated upstream
 import CongruencCalculator from "../Medio/congruenc";
-=======
 import JurosCompostos from "../Medio/JurosCompostos";
->>>>>>> Stashed changes
 
 const Stack = createStackNavigator();
 

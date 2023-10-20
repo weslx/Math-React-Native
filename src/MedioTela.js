@@ -14,11 +14,7 @@ const MedioTela = () => {
       <Button
         title="Juros Compostos"
         color={colors.primary}
-<<<<<<< Updated upstream
-        onPress={() => navigation.navigate("Medio1Ano")}
-=======
         onPress={() => navigation.navigate("JurosCompostos")}
->>>>>>> Stashed changes
       />
       <Button
         title="2° Ano Ensino Médio"
@@ -28,11 +24,7 @@ const MedioTela = () => {
       <Button
         title="3° Ano Ensino Médio"
         color={colors.primary}
-<<<<<<< Updated upstream
         onPress={() => navigation.navigate("Senos")}
-=======
-        onPress={() => navigation.navigate("Medio3Ano")}
->>>>>>> Stashed changes
       />
     </View>
   );
