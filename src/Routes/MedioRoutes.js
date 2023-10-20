@@ -2,8 +2,9 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import MedioTela from "../MedioTela";
 import FundamentalScreen from "../FundamentalTela";
-import HomeScreen from "../homescreen";
+import HomeScreen from "../HomeScreen.js";
 import colors from "../../colors";
+import CongruencCalculator from "../Medio/congruenc";
 
 const Stack = createStackNavigator();
 
@@ -19,8 +20,17 @@ function MedioRoutes() {
           headerTitleStyle: { fontWeight: "bold" },
         }}
       />
-
+      <Stack.Screen
+        options={{
+          headerStyle: { backgroundColor: colors.primary },
+          headerTintColor: "#fff",
+          headerTitleStyle: { fontWeight: "bold" },
+        }}
+        name="Senos"
+        component={CongruencCalculator}
+      />
       <Stack.Screen name="Fundamental" component={FundamentalScreen} />
+
       <Stack.Screen
         name="Medio"
         component={MedioTela}
