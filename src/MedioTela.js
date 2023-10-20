@@ -22,7 +22,7 @@ const MedioTela = () => {
         onPress={() => navigation.navigate("Medio2Ano")}
       />
       <Button
-        title="3° Ano Ensino Médio"
+        title="Lei de Senos"
         color={colors.primary}
         onPress={() => navigation.navigate("Senos")}
       />

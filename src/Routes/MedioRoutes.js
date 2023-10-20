@@ -13,8 +13,8 @@ function MedioRoutes() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="JurosCompostos"
-        component={JurosCompostos}
+        name="Inicio"
+        component={HomeScreen}
         options={{
           headerStyle: { backgroundColor: colors.primary },
           headerTintColor: "#fff",
@@ -22,8 +22,8 @@ function MedioRoutes() {
         }}
       />
       <Stack.Screen
-        name="Inicio"
-        component={HomeScreen}
+        name="JurosCompostos"
+        component={JurosCompostos}
         options={{
           headerStyle: { backgroundColor: colors.primary },
           headerTintColor: "#fff",
