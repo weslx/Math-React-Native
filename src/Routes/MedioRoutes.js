@@ -6,12 +6,22 @@ import HomeScreen from "../HomeScreen.js";
 import colors from "../../colors";
 import CongruencCalculator from "../Medio/congruenc";
 import JurosCompostos from "../Medio/JurosCompostos";
+import JurosSimples from "../Medio/JurosSimples";
 
 const Stack = createStackNavigator();
 
 function MedioRoutes() {
   return (
     <Stack.Navigator>
+      <Stack.Screen
+        name="Juros Simples"
+        component={JurosSimples}
+        options={{
+          headerStyle: { backgroundColor: colors.primary },
+          headerTintColor: "#fff",
+          headerTitleStyle: { fontWeight: "bold" },
+        }}
+      />
       <Stack.Screen
         name="Inicio"
         component={HomeScreen}
@@ -22,7 +32,7 @@ function MedioRoutes() {
         }}
       />
       <Stack.Screen
-        name="JurosCompostos"
+        name="Juros Compostos"
         component={JurosCompostos}
         options={{
           headerStyle: { backgroundColor: colors.primary },
