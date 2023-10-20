@@ -10,7 +10,16 @@ const Stack = createStackNavigator();
 function MedioRoutes() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen
+        name="Inicio"
+        component={HomeScreen}
+        options={{
+          headerStyle: { backgroundColor: colors.primary },
+          headerTintColor: "#fff",
+          headerTitleStyle: { fontWeight: "bold" },
+        }}
+      />
+
       <Stack.Screen name="Fundamental" component={FundamentalScreen} />
       <Stack.Screen
         name="Medio"
