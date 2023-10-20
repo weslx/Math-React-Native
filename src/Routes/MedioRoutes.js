@@ -4,13 +4,26 @@ import MedioTela from "../MedioTela";
 import FundamentalScreen from "../FundamentalTela";
 import HomeScreen from "../HomeScreen.js";
 import colors from "../../colors";
+<<<<<<< Updated upstream
 import CongruencCalculator from "../Medio/congruenc";
+=======
+import JurosCompostos from "../Medio/JurosCompostos";
+>>>>>>> Stashed changes
 
 const Stack = createStackNavigator();
 
 function MedioRoutes() {
   return (
     <Stack.Navigator>
+      <Stack.Screen
+        name="JurosCompostos"
+        component={JurosCompostos}
+        options={{
+          headerStyle: { backgroundColor: colors.primary },
+          headerTintColor: "#fff",
+          headerTitleStyle: { fontWeight: "bold" },
+        }}
+      />
       <Stack.Screen
         name="Inicio"
         component={HomeScreen}
