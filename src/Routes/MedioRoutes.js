@@ -24,6 +24,15 @@ function MedioRoutes() {
         }}
       />
       <Stack.Screen
+        name="Medio"
+        component={MedioTela}
+        options={{
+          headerStyle: { backgroundColor: colors.primary },
+          headerTintColor: "#fff",
+          headerTitleStyle: { fontWeight: "bold" },
+        }}
+      />
+      <Stack.Screen
         name="Logaritma"
         component={CalculadoraLogaritmo}
         options={{
@@ -62,16 +71,6 @@ function MedioRoutes() {
       <Stack.Screen
         name="Fundamental"
         component={FundamentalScreen}
-        options={{
-          headerStyle: { backgroundColor: colors.primary },
-          headerTintColor: "#fff",
-          headerTitleStyle: { fontWeight: "bold" },
-        }}
-      />
-
-      <Stack.Screen
-        name="Medio"
-        component={MedioTela}
         options={{
           headerStyle: { backgroundColor: colors.primary },
           headerTintColor: "#fff",

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Button, StyleSheet } from "react-native";
+import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import colors from "../colors";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -11,26 +11,30 @@ const MedioTela = () => {
 
   return (
     <View style={styles.center}>
-      <Button
-        title="Juros Compostos"
-        color={colors.primary}
+      <TouchableOpacity
+        style={styles.button}
         onPress={() => navigation.navigate("Juros Compostos")}
-      />
-      <Button
-        title="Juros Simples"
-        color={colors.primary}
+      >
+        <Text style={styles.text}>Juros Compostos</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
         onPress={() => navigation.navigate("Juros Simples")}
-      />
-      <Button
-        title="Lei de Senos"
-        color={colors.primary}
+      >
+        <Text style={styles.text}>Juros Simples</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
         onPress={() => navigation.navigate("Senos")}
-      />
-      <Button
-        title="Logaritmo"
-        color={colors.primary}
+      >
+        <Text style={styles.text}>Lei de Senos</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
         onPress={() => navigation.navigate("Logaritma")}
-      />
+      >
+        <Text style={styles.text}>Logaritmo</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -41,6 +45,21 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: colors.background,
+  },
+  button: {
+    justifyContent: "center",
+    alignItems: "center",
+    height: 100,
+    marginBottom: 10,
+    width: 150,
+    borderColor: colors.primary,
+    borderWidth: 5,
+    borderRadius: 20,
+  },
+  text: {
+    fontWeight: "bold",
+    fontSize: 15,
+    color: colors.primary,
   },
 });
 
