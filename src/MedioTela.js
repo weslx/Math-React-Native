@@ -14,12 +14,12 @@ const MedioTela = () => {
       <Button
         title="Juros Compostos"
         color={colors.primary}
-        onPress={() => navigation.navigate("JurosCompostos")}
+        onPress={() => navigation.navigate("Juros Compostos")}
       />
       <Button
-        title="2° Ano Ensino Médio"
+        title="Juros Simples"
         color={colors.primary}
-        onPress={() => navigation.navigate("Medio2Ano")}
+        onPress={() => navigation.navigate("Juros Simples")}
       />
       <Button
         title="Lei de Senos"

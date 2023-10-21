@@ -5,8 +5,8 @@ import FundamentalScreen from "../FundamentalTela";
 import HomeScreen from "../HomeScreen.js";
 import colors from "../../colors";
 import CongruencCalculator from "../Medio/LeiDeSeno/leideseno";
-import JurosCompostos from "../Medio/JurosCompostos";
-import JurosSimples from "../Medio/JurosSimples";
+import JurosCompostos from "../Medio/Juros/JurosCompostos";
+import JurosSimples from "../Medio/Juros/JurosSimples";
 
 const Stack = createStackNavigator();
 
@@ -49,7 +49,15 @@ function MedioRoutes() {
         name="Senos"
         component={CongruencCalculator}
       />
-      <Stack.Screen name="Fundamental" component={FundamentalScreen} />
+      <Stack.Screen
+        name="Fundamental"
+        component={FundamentalScreen}
+        options={{
+          headerStyle: { backgroundColor: colors.primary },
+          headerTintColor: "#fff",
+          headerTitleStyle: { fontWeight: "bold" },
+        }}
+      />
 
       <Stack.Screen
         name="Medio"
