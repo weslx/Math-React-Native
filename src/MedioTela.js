@@ -26,6 +26,11 @@ const MedioTela = () => {
         color={colors.primary}
         onPress={() => navigation.navigate("Senos")}
       />
+      <Button
+        title="Logaritmo"
+        color={colors.primary}
+        onPress={() => navigation.navigate("Logaritma")}
+      />
     </View>
   );
 };

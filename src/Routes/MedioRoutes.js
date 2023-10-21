@@ -7,6 +7,7 @@ import colors from "../../colors";
 import CongruencCalculator from "../Medio/LeiDeSeno/leideseno";
 import JurosCompostos from "../Medio/Juros/JurosCompostos";
 import JurosSimples from "../Medio/Juros/JurosSimples";
+import CalculadoraLogaritmo from "../Medio/Logaritma/logaritma";
 
 const Stack = createStackNavigator();
 
@@ -16,6 +17,15 @@ function MedioRoutes() {
       <Stack.Screen
         name="Inicio"
         component={HomeScreen}
+        options={{
+          headerStyle: { backgroundColor: colors.primary },
+          headerTintColor: "#fff",
+          headerTitleStyle: { fontWeight: "bold" },
+        }}
+      />
+      <Stack.Screen
+        name="Logaritma"
+        component={CalculadoraLogaritmo}
         options={{
           headerStyle: { backgroundColor: colors.primary },
           headerTintColor: "#fff",
