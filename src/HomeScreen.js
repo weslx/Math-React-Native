@@ -11,14 +11,16 @@ export default function HomeScreen() {
       <LogoWithName />
       <View style={styles.buttonContainer}>
         <Button
-          title="Ir para Fundamental"
+          style={styles.buttonContainer}
+          title=" Ensino Fundamental"
           color={colors.primary}
           onPress={() => navigation.navigate("Fundamental")}
         />
       </View>
       <View style={styles.buttonContainer}>
         <Button
-          title="Ir para Medio"
+          style={styles.buttonstyle}
+          title="Ensino Medio"
           color={colors.primary}
           onPress={() => navigation.navigate("Medio")}
         />
@@ -31,7 +33,7 @@ const LogoWithName = () => {
   return (
     <View>
       <Image
-        source={require("../assets/mh.png")}
+        source={require("../assets/mh_azul.png")}
         style={styles.logo}
         resizeMode="contain"
       />
@@ -40,14 +42,19 @@ const LogoWithName = () => {
 };
 
 const styles = StyleSheet.create({
+  buttonstyle: {
+    height: "10%",
+  },
   center: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
   },
   buttonContainer: {
-    marginVertical: 10,
-    width: "80%",
+    marginVertical: 5,
+    width: "50%",
+    borderRadius: 10,
+    overflow: "hidden",
   },
   logo: {
     width: 370,
