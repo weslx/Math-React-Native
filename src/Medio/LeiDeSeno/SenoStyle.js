@@ -17,6 +17,14 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     width: 200,
     height: 50,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   font: {
     fontWeight: "bold",
