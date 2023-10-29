@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, TextInput, Button, StyleSheet } from "react-native";
 import { LineChart } from "react-native-chart-kit";
 import colors from "../../../colors";
+import styles from "../MedStyle";
 
 export default function JurosSimples() {
   const [principal, setPrincipal] = useState("");
@@ -62,22 +63,22 @@ export default function JurosSimples() {
   };
 
   return (
-    <View style={estilos.container}>
-      <Text style={estilos.titulo}>Calculadora de Juros Simples</Text>
+    <View style={styles.center}>
+      <Text style={styles.font}>Calculadora de Juros Simples</Text>
       <TextInput
-        style={estilos.entrada}
+        style={styles.inputs}
         placeholder="Valor Principal"
         onChangeText={(texto) => setPrincipal(texto)}
         keyboardType="numeric"
       />
       <TextInput
-        style={estilos.entrada}
+        style={styles.inputs}
         placeholder="Taxa de Juros Anual (%)"
         onChangeText={(texto) => setTaxaDeJuros(texto)}
         keyboardType="numeric"
       />
       <TextInput
-        style={estilos.entrada}
+        style={styles.inputs}
         placeholder="Período (em anos)"
         onChangeText={(texto) => setTempo(texto)}
         keyboardType="numeric"
@@ -115,25 +116,6 @@ export default function JurosSimples() {
 }
 
 const estilos = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 20,
-  },
-  titulo: {
-    fontSize: 24,
-    marginBottom: 20,
-    textAlign: "center",
-  },
-  entrada: {
-    height: 40,
-    borderColor: "gray",
-    borderWidth: 1,
-    marginBottom: 10,
-    paddingLeft: 10,
-    selectionColor: colors.primary,
-    borderColor: colors.primary,
-  },
   resultado: {
     marginTop: 20,
     fontSize: 18,

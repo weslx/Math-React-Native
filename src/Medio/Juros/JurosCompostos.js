@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, Button, StyleSheet } from "react-native";
-import { LineChart } from "react-native-chart-kit";
+import { BarChart } from "react-native-chart-kit";
 import colors from "../../../colors";
+import styles from "../MedStyle";
 
 export default function JurosCompostos() {
   const [principal, setPrincipal] = useState("");
@@ -29,12 +30,26 @@ export default function JurosCompostos() {
       dadosCompostos.push(montante);
     }
 
+    // Cria um novo conjunto de dados para os juros
+    const jurosAcumulados = dadosCompostos.map((montante, index) => {
+      if (index === 0) {
+        return 0;
+      } else {
+        return montante - dadosCompostos[index - 1];
+      }
+    });
+
     setDadosDoGrafico({
       labels: Array.from({ length: t + 1 }, (_, i) => `Ano ${i}`),
       datasets: [
         {
           data: dadosCompostos,
           color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
+          strokeWidth: 2,
+        },
+        {
+          data: jurosAcumulados,
+          color: (opacity = 1) => `rgba(255, 0, 0, ${opacity})`, // Cor diferente para os juros
           strokeWidth: 2,
         },
       ],
@@ -62,22 +77,22 @@ export default function JurosCompostos() {
   };
 
   return (
-    <View style={estilos.container}>
-      <Text style={estilos.titulo}>Calculadora de Juros Compostos</Text>
+    <View style={styles.center}>
+      <Text style={styles.font}>Calculadora de Juros Compostos</Text>
       <TextInput
-        style={estilos.entrada}
+        style={styles.inputs}
         placeholder="Valor Principal"
         onChangeText={(texto) => setPrincipal(texto)}
         keyboardType="numeric"
       />
       <TextInput
-        style={estilos.entrada}
+        style={styles.inputs}
         placeholder="Taxa de Juros Anual (%)"
         onChangeText={(texto) => setTaxaDeJuros(texto)}
         keyboardType="numeric"
       />
       <TextInput
-        style={estilos.entrada}
+        style={styles.inputs}
         placeholder="Período (em anos)"
         onChangeText={(texto) => setTempo(texto)}
         keyboardType="numeric"
@@ -95,7 +110,7 @@ export default function JurosCompostos() {
       )}
       {dadosDoGrafico && (
         <View style={estilos.containarGrafico}>
-          <LineChart
+          <BarChart
             data={dadosDoGrafico}
             width={350}
             height={200}
@@ -115,29 +130,6 @@ export default function JurosCompostos() {
 }
 
 const estilos = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 20,
-  },
-  titulo: {
-    fontSize: 24,
-    marginBottom: 20,
-    textAlign: "center",
-  },
-  entrada: {
-    height: 40,
-    borderColor: colors.primary,
-    borderWidth: 1,
-    marginBottom: 10,
-    paddingLeft: 10,
-    selectionColor: colors.primary,
-  },
-  resultado: {
-    marginTop: 20,
-    fontSize: 18,
-    textAlign: "center",
-  },
   containarGrafico: {
     marginTop: 20,
   },

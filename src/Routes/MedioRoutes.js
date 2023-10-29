@@ -25,6 +25,15 @@ function MedioRoutes() {
         }}
       />
       <Stack.Screen
+        name="Logaritma"
+        component={CalculadoraLogaritmo}
+        options={{
+          headerStyle: { backgroundColor: colors.primary },
+          headerTintColor: "#fff",
+          headerTitleStyle: { fontWeight: "bold" },
+        }}
+      />
+      <Stack.Screen
         name="Cossenos"
         component={TriangleCalculator}
         options={{
@@ -42,15 +51,7 @@ function MedioRoutes() {
           headerTitleStyle: { fontWeight: "bold" },
         }}
       />
-      <Stack.Screen
-        name="Logaritma"
-        component={CalculadoraLogaritmo}
-        options={{
-          headerStyle: { backgroundColor: colors.primary },
-          headerTintColor: "#fff",
-          headerTitleStyle: { fontWeight: "bold" },
-        }}
-      />
+
       <Stack.Screen
         name="Juros Simples"
         component={JurosSimples}

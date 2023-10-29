@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, Button, StyleSheet } from "react-native";
 import colors from "../../../colors";
+import styles from "../MedStyle";
 
 export default function CalculadoraLogaritmo() {
   const [base, setBase] = useState("");
@@ -31,16 +32,16 @@ export default function CalculadoraLogaritmo() {
   };
 
   return (
-    <View style={estilos.container}>
-      <Text style={estilos.titulo}>Calculadora de Logaritmo</Text>
+    <View style={styles.center}>
+      <Text style={styles.font}>Calculadora de Logaritmo</Text>
       <TextInput
-        style={estilos.entrada}
+        style={styles.inputs}
         placeholder="Insira o número"
         onChangeText={(texto) => setNumero(texto)}
         keyboardType="numeric"
       />
       <TextInput
-        style={estilos.entrada}
+        style={styles.inputs}
         placeholder="Insira a base do logaritmo"
         onChangeText={(texto) => setBase(texto)}
         keyboardType="numeric"
@@ -55,28 +56,3 @@ export default function CalculadoraLogaritmo() {
     </View>
   );
 }
-
-const estilos = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 20,
-  },
-  titulo: {
-    fontSize: 24,
-    marginBottom: 20,
-    textAlign: "center",
-  },
-  entrada: {
-    height: 40,
-    borderColor: colors.primary,
-    borderWidth: 1,
-    marginBottom: 10,
-    paddingLeft: 10,
-  },
-  resultado: {
-    marginTop: 20,
-    fontSize: 18,
-    textAlign: "center",
-  },
-});

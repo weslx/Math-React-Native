@@ -1,7 +1,7 @@
 import colors from "../../../colors";
 import React, { useState } from "react";
 import { View, Text, TextInput, Button } from "react-native";
-import styles from "./SenoStyle";
+import styles from "../MedStyle";
 const CongruencCalculator = () => {
   const [ladoA, setLadoA] = useState("");
   const [ladoB, setLadoB] = useState("");

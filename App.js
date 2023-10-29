@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 
-import MedioRoutes from "./src/routes/MedioRoutes";
+import MedioRoutes from "./src/Routes/MedioRoutes";
 
 function App() {
   return (
