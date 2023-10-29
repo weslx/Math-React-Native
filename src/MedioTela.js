@@ -31,6 +31,12 @@ const MedioTela = () => {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
+        onPress={() => navigation.navigate("Cossenos")}
+      >
+        <Text style={styles.text}>Lei de Cossenos</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
         onPress={() => navigation.navigate("Logaritma")}
       >
         <Text style={styles.text}>Logaritmo</Text>

@@ -8,6 +8,7 @@ import CongruencCalculator from "../Medio/LeiDeSeno/leideseno";
 import JurosCompostos from "../Medio/Juros/JurosCompostos";
 import JurosSimples from "../Medio/Juros/JurosSimples";
 import CalculadoraLogaritmo from "../Medio/Logaritma/logaritma";
+import TriangleCalculator from "../Medio/LeiDeCossenos/leideco";
 
 const Stack = createStackNavigator();
 
@@ -17,6 +18,15 @@ function MedioRoutes() {
       <Stack.Screen
         name="Inicio"
         component={HomeScreen}
+        options={{
+          headerStyle: { backgroundColor: colors.primary },
+          headerTintColor: "#fff",
+          headerTitleStyle: { fontWeight: "bold" },
+        }}
+      />
+      <Stack.Screen
+        name="Cossenos"
+        component={TriangleCalculator}
         options={{
           headerStyle: { backgroundColor: colors.primary },
           headerTintColor: "#fff",
