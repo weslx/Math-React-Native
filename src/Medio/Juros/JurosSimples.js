@@ -96,23 +96,26 @@ export default function JurosSimples() {
       )}
       {dadosDoGrafico && (
         <View style={estilos.contenedorDoGrafico}>
+          <Text style={estilos.tituloDoGrafico}>Título do Gráfico</Text>
           <BarChart
             data={dadosDoGrafico}
             width={350}
             height={200}
             chartConfig={{
-              backgroundGradientFrom: "white",
-              backgroundGradientTo: "white",
-              color: (opacity = 1) => colors.primary,
-              labelColor: (opacity = 1) => "black",
+              backgroundGradientFrom: "#f1f8e9",
+              backgroundGradientTo: "#f1f8e9",
+              color: (opacity = 1) => `rgba(76, 175, 80, ${opacity})`, // Altera a cor para verde
+              labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`, // Altera a cor da etiqueta para preto
               strokeWidth: 2,
-              barPercentage: 1,
-              propsForDots: {
-                r: "0", // Define o tamanho dos pontos para zero para remover a linha pontilhada
-              },
+              barPercentage: 0.5, // Reduz a largura das barras para melhorar a estética
+              withDots: false, // Adiciona essa linha para remover a linha pontilhada
               propsForLabels: {
                 strokeWidth: 2, // Adiciona essa linha para garantir que a linha seja contínua
               },
+            }}
+            style={{
+              marginVertical: 8, // Adiciona margem vertical para melhor separação visual
+              borderRadius: 16, // Adiciona bordas arredondadas para estética aprimorada
             }}
           />
         </View>
