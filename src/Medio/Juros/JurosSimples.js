@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, Button, StyleSheet } from "react-native";
-import { LineChart } from "react-native-chart-kit";
+import { BarChart } from "react-native-chart-kit";
 import colors from "../../../colors";
 import styles from "../MedStyle";
 
@@ -96,7 +96,7 @@ export default function JurosSimples() {
       )}
       {dadosDoGrafico && (
         <View style={estilos.contenedorDoGrafico}>
-          <LineChart
+          <BarChart
             data={dadosDoGrafico}
             width={350}
             height={200}
@@ -107,6 +107,12 @@ export default function JurosSimples() {
               labelColor: (opacity = 1) => "black",
               strokeWidth: 2,
               barPercentage: 1,
+              propsForDots: {
+                r: "0", // Define o tamanho dos pontos para zero para remover a linha pontilhada
+              },
+              propsForLabels: {
+                strokeWidth: 2, // Adiciona essa linha para garantir que a linha seja contínua
+              },
             }}
           />
         </View>
