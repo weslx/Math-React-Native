@@ -34,7 +34,6 @@ const Exponenciação = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Calculadora de Exponenciação</Text>
       <TextInput
         style={styles.input}
         placeholder="Insira a base"
@@ -66,12 +65,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "white",
   },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 20,
-    color: colors.primary,
-  },
+
   input: {
     borderWidth: 1,
     borderColor: colors.primary,
