@@ -44,7 +44,9 @@ const TriangleCalculator = () => {
 
   return (
     <View style={styles.center}>
-      <Text style={styles.font}>Lei dos Cossenos</Text>
+      <Text>
+        <Text style={styles.font}>Lei dos Cossenos</Text>
+      </Text>
       <TextInput
         style={styles.inputs}
         onChangeText={setSideA}

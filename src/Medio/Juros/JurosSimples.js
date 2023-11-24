@@ -66,7 +66,9 @@ export default function JurosSimples() {
 
   return (
     <View style={styles.center}>
-      <Text style={styles.font}>Calculadora de Juros Simples</Text>
+      <Text>
+        <Text style={styles.font}>Calculadora de Juros Simples</Text>
+      </Text>
       <TextInput
         style={styles.inputs}
         placeholder="Valor Principal"
@@ -90,15 +92,23 @@ export default function JurosSimples() {
         onPress={calcularJurosSimples}
         color={colors.primary}
       />
-      {resultado && <Text style={estilos.resultado}>{resultado}</Text>}
+      {resultado && (
+        <Text>
+          <Text style={estilos.resultado}>{resultado}</Text>
+        </Text>
+      )}
       {tipoDeCrescimento && (
-        <Text style={estilos.resultado}>
-          Tipo de Crescimento: {tipoDeCrescimento}
+        <Text>
+          <Text style={estilos.resultado}>
+            Tipo de Crescimento: {tipoDeCrescimento}
+          </Text>
         </Text>
       )}
       {dadosDoGrafico && (
         <View style={estilos.contenedorDoGrafico}>
-          <Text style={estilos.tituloDoGrafico}>Título do Gráfico</Text>
+          <Text>
+            <Text style={estilos.tituloDoGrafico}>Título do Gráfico</Text>
+          </Text>
           <BarChart
             data={dadosDoGrafico}
             width={350}

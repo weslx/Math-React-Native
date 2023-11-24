@@ -84,7 +84,9 @@ export default function JurosCompostos() {
 
   return (
     <View style={styles.center}>
-      <Text style={styles.font}>Calculadora de Juros Compostos</Text>
+      <Text>
+        <Text style={styles.font}>Calculadora de Juros Compostos</Text>
+      </Text>
       <TextInput
         style={styles.inputs}
         placeholder="Valor Principal"
@@ -108,12 +110,13 @@ export default function JurosCompostos() {
         title="Calcular"
         onPress={calcularJurosCompostos}
       />
-      {resultado && <Text style={estilos.resultado}>{resultado}</Text>}
-      {tipoDeCrescimento && (
-        <Text style={estilos.resultado}>
-          Tipo de Crescimento: {tipoDeCrescimento}
+      {resultado && (
+        <Text>
+          {" "}
+          <Text style={estilos.resultado}>{resultado}</Text>{" "}
         </Text>
       )}
+
       {dadosDoGrafico && (
         <View style={estilos.containarGrafico}>
           <BarChart
