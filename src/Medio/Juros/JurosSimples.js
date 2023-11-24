@@ -30,11 +30,11 @@ export default function JurosSimples() {
       dadosSimples.push(montante);
     }
     const colors = Array(dadosSimples.length).fill(
-      (opacity = 1) => `rgba(0, 0, 0, ${opacity})`
+      (opacity = 1) => `rgba(255,253,255, ${opacity})`
     );
 
     setDadosDoGrafico({
-      labels: Array.from({ length: t + 1 }, (_, i) => `Ano ${i}`),
+      labels: Array.from({ length: t + 1 }, (_, i) => `${i}° ano`),
       datasets: [
         {
           data: dadosSimples,
@@ -91,6 +91,7 @@ export default function JurosSimples() {
         title="Calcular"
         onPress={calcularJurosSimples}
         color={colors.primary}
+        style={styles.calcular}
       />
       {resultado && (
         <Text>
@@ -111,15 +112,15 @@ export default function JurosSimples() {
           </Text>
           <BarChart
             data={dadosDoGrafico}
-            width={350}
-            height={200}
+            width={380}
+            height={250}
             chartConfig={{
               backgroundGradientFrom: colors.primary,
               backgroundGradientTo: colors.primary,
-              color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-              labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+              color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+              labelColor: (opacity = 1) => `rgba(255,255,255, ${opacity})`,
               strokeWidth: 2,
-              barPercentage: 0.7,
+              barPercentage: 0.6,
               withDots: false,
               propsForLabels: {
                 strokeWidth: 2,
@@ -151,10 +152,5 @@ const estilos = StyleSheet.create({
   },
   contenedorDoGrafico: {
     marginTop: 20,
-  },
-  tituloDoGrafico: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginBottom: 10,
   },
 });

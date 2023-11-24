@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, TextInput, Button } from "react-native";
 import styles from "../MedStyle";
 import colors from "../../../colors";
+import { StyleSheet } from "react-native";
 
 const TriangleCalculator = () => {
   const [sideA, setSideA] = useState(0);
@@ -68,16 +69,15 @@ const TriangleCalculator = () => {
       <Button
         color={colors.primary}
         onPress={calculateTriangle}
-        title="Calcular Ângulos"
+        title="Calcular"
       />
-      <Text>Ângulo A: {angleA}</Text>
-      <Text>Ângulo B: {angleB}</Text>
-      <Text>Ângulo C: {angleC}</Text>
+      <Text style={styles.text}>Ângulo A: {angleA}</Text>
+      <Text style={styles.text}>Ângulo B: {angleB}</Text>
+      <Text style={styles.text}>Ângulo C: {angleC}</Text>
       {steps.map((step, index) => (
         <Text key={index}>{step}</Text>
       ))}
     </View>
   );
 };
-
 export default TriangleCalculator;
