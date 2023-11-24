@@ -7,8 +7,8 @@ import {
   StyleSheet,
 } from "react-native";
 import { Picker } from "@react-native-picker/picker";
-import math from "mathjs";
 import colors from "../../../colors";
+import math from "mathjs";
 
 const Matriz = () => {
   const [operation, setOperation] = useState("");
@@ -180,6 +180,14 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     color: colors.primary,
   },
+  picker: {
+    borderWidth: 1,
+    borderColor: colors.primary,
+    borderRadius: 5,
+    padding: 8,
+    width: 250,
+    marginBottom: 20,
+  },
   inputContainer: {
     flexDirection: "row",
     alignItems: "center",
@@ -213,6 +221,10 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     color: colors.primary,
   },
+  matrixContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+  },
   matrixRow: {
     flexDirection: "row",
     marginBottom: 5,
@@ -242,23 +254,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: colors.primary,
     textAlign: "center",
-  },
-});
-
-const pickerSelectStyles = StyleSheet.create({
-  inputIOS: {
-    borderWidth: 1,
-    borderColor: colors.primary,
-    borderRadius: 5,
-    padding: 8,
-    width: 250,
-  },
-  inputAndroid: {
-    borderWidth: 1,
-    borderColor: colors.primary,
-    borderRadius: 5,
-    padding: 8,
-    width: 250,
   },
 });
 
