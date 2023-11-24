@@ -38,7 +38,7 @@ export default function JurosSimples() {
       datasets: [
         {
           data: dadosSimples,
-          colors: colors, // Altera a cor para o array de cores
+          colors: colors,
           strokeWidth: 2,
         },
       ],
@@ -56,7 +56,6 @@ export default function JurosSimples() {
   };
 
   const eLinear = (dados) => {
-    // Verifique se os dados se ajustam a um crescimento linear
     for (let i = 1; i < dados.length; i++) {
       if (dados[i] - dados[i - 1] !== dados[1] - dados[0]) {
         return false;
@@ -107,8 +106,8 @@ export default function JurosSimples() {
             chartConfig={{
               backgroundGradientFrom: colors.primary,
               backgroundGradientTo: colors.primary,
-              color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`, // Altera a cor para preto
-              labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`, // Altera a cor da etiqueta para preto
+              color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+              labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
               strokeWidth: 2,
               barPercentage: 0.7,
               withDots: false,

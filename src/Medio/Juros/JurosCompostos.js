@@ -30,7 +30,6 @@ export default function JurosCompostos() {
       dadosCompostos.push(montante);
     }
 
-    // Cria um novo conjunto de dados para os juros
     const jurosAcumulados = dadosCompostos.map((montante, index) => {
       if (index === 0) {
         return 0;
@@ -39,17 +38,25 @@ export default function JurosCompostos() {
       }
     });
 
+    const colors = Array(dadosCompostos.length).fill(
+      (opacity = 1) => `rgba(0, 0, 0, ${opacity})`
+    );
+
+    const dadosArredondados = dadosCompostos.map((valor) =>
+      parseFloat(valor.toFixed(2))
+    );
+
     setDadosDoGrafico({
       labels: Array.from({ length: t + 1 }, (_, i) => `Ano ${i}`),
       datasets: [
         {
-          data: dadosCompostos,
-          color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
+          data: dadosArredondados,
+          colors: colors,
           strokeWidth: 2,
         },
         {
           data: jurosAcumulados,
-          color: (opacity = 1) => `rgba(255, 0, 0, ${opacity})`, // Cor diferente para os juros
+          color: (opacity = 1) => `rgba(255, 0, 0, ${opacity})`,
           strokeWidth: 2,
         },
       ],
@@ -67,7 +74,6 @@ export default function JurosCompostos() {
   };
 
   const eLinear = (dados) => {
-    // Verifique se os dados se ajustam a um crescimento linear
     for (let i = 1; i < dados.length; i++) {
       if (dados[i] - dados[i - 1] !== dados[1] - dados[0]) {
         return false;
@@ -115,13 +121,28 @@ export default function JurosCompostos() {
             width={350}
             height={200}
             chartConfig={{
-              backgroundGradientFrom: "white",
-              backgroundGradientTo: "white",
-              color: (opacity = 1) => colors.primary,
-              labelColor: (opacity = 1) => "black",
+              backgroundGradientFrom: colors.primary,
+              backgroundGradientTo: colors.primary,
+              color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+              labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
               strokeWidth: 2,
-              barPercentage: 1,
+              barPercentage: 0.7,
+              withDots: false,
+              propsForLabels: {
+                strokeWidth: 2,
+              },
             }}
+            style={{
+              marginVertical: 8,
+              borderRadius: 16,
+              backgroundColor: "#F0F0F0",
+              borderWidth: 1,
+              borderColor: "#E0E0E0",
+            }}
+            withInnerLines={false}
+            showValuesOnTopOfBars
+            withCustomBarColorFromData
+            flatColor={true}
           />
         </View>
       )}
