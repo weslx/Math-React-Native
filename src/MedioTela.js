@@ -47,6 +47,18 @@ const MedioTela = () => {
       >
         <Text style={styles.text}>Logaritma</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate("Exponenciação")}
+      >
+        <Text style={styles.text}>Exponenciação</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate("Radiciação")}
+      >
+        <Text style={styles.text}>Radiciação</Text>
+      </TouchableOpacity>
     </View>
   );
 };

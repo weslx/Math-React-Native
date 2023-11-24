@@ -10,6 +10,8 @@ import JurosSimples from "../Medio/Juros/JurosSimples.js";
 import Funções from "../Medio/errado/funcoes.js";
 import TriangleCalculator from "../Medio/LeiDeCossenos/leideco.js";
 import Logaritma from "../Medio/Logaritma/Logaritma.js";
+import Exponenciação from "../Medio/Exponenciacao/exponenciacao.js";
+import Radiciação from "../Medio/Radiciacao/Radiciacao.js";
 
 const Stack = createStackNavigator();
 
@@ -92,6 +94,24 @@ function MedioRoutes() {
       <Stack.Screen
         name="Logaritma"
         component={Logaritma}
+        options={{
+          headerStyle: { backgroundColor: colors.primary },
+          headerTintColor: "#fff",
+          headerTitleStyle: { fontWeight: "bold" },
+        }}
+      />
+      <Stack.Screen
+        name="Exponenciação"
+        component={Exponenciação}
+        options={{
+          headerStyle: { backgroundColor: colors.primary },
+          headerTintColor: "#fff",
+          headerTitleStyle: { fontWeight: "bold" },
+        }}
+      />
+      <Stack.Screen
+        name="Radiciação"
+        component={Radiciação}
         options={{
           headerStyle: { backgroundColor: colors.primary },
           headerTintColor: "#fff",

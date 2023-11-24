@@ -8,53 +8,49 @@ import {
 } from "react-native";
 import colors from "../../../colors";
 
-const Logaritma = () => {
-  const [base, setBase] = useState("");
-  const [input, setInput] = useState("");
+const Radiciação = () => {
+  const [radicand, setRadicand] = useState("");
+  const [index, setIndex] = useState("");
   const [result, setResult] = useState("");
 
-  const calculateLog = () => {
-    if (base && input) {
-      const baseNumber = parseFloat(base);
-      const inputNumber = parseFloat(input);
-      if (
-        !isNaN(baseNumber) &&
-        !isNaN(inputNumber) &&
-        baseNumber > 0 &&
-        inputNumber > 0
-      ) {
+  const calculateRadix = () => {
+    if (radicand && index) {
+      const radicandNumber = parseFloat(radicand);
+      const indexNumber = parseFloat(index);
+      if (!isNaN(radicandNumber) && !isNaN(indexNumber) && indexNumber !== 0) {
         setResult(
-          `log${baseNumber}(${inputNumber}) = ${
-            Math.log(inputNumber) / Math.log(baseNumber)
+          `${indexNumber}√${radicandNumber} = ${
+            radicandNumber ** (1 / indexNumber)
           }`
         );
       } else {
         setResult("Entradas inválidas");
       }
     } else {
-      setResult("Por favor, insira a base e o valor");
+      setResult("Por favor, insira o radicando e o índice");
     }
   };
 
   return (
     <View style={styles.container}>
+      <Text style={styles.title}>Calculadora de Radiciação</Text>
       <TextInput
         style={styles.input}
-        placeholder="Insira a base"
+        placeholder="Insira o radicando"
         placeholderTextColor={colors.primary}
         keyboardType="numeric"
-        value={base}
-        onChangeText={(text) => setBase(text)}
+        value={radicand}
+        onChangeText={(text) => setRadicand(text)}
       />
       <TextInput
         style={styles.input}
-        placeholder="Insira o valor"
+        placeholder="Insira o índice"
         placeholderTextColor={colors.primary}
         keyboardType="numeric"
-        value={input}
-        onChangeText={(text) => setInput(text)}
+        value={index}
+        onChangeText={(text) => setIndex(text)}
       />
-      <TouchableOpacity style={styles.button} onPress={calculateLog}>
+      <TouchableOpacity style={styles.button} onPress={calculateRadix}>
         <Text style={styles.buttonText}>Calcular</Text>
       </TouchableOpacity>
       {result !== "" && <Text style={styles.result}>{result}</Text>}
@@ -68,6 +64,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "white",
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 20,
+    color: colors.primary,
   },
   input: {
     borderWidth: 1,
@@ -96,4 +98,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Logaritma;
+export default Radiciação;
