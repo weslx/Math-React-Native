@@ -4,7 +4,7 @@ import { Picker } from "@react-native-picker/picker";
 import { LineChart } from "react-native-chart-kit";
 import colors from "../../../colors";
 
-const Funçoes = () => {
+const Funcoes = () => {
   const [selectedFunction, setSelectedFunction] = useState("Função Quadrática");
   const [result, setResult] = useState("");
   const [calculationSteps, setCalculationSteps] = useState("");
@@ -15,38 +15,49 @@ const Funçoes = () => {
   const [coeficienteLinearValue, setCoeficienteLinearValue] = useState("");
   const [constanteQuadraticaValue, setConstanteQuadraticaValue] = useState("");
   const [chartData, setChartData] = useState({});
+  const [baseExponencialValue, setBaseExponencialValue] = useState("");
+  const [baseLogaritmicaValue, setBaseLogaritmicaValue] = useState("");
 
   const getFormula = (selectedFunction) => {
-    if (selectedFunction === "Função Quadrática") {
-      return "Função Quadrática: ax^2 + bx + c";
-    } else if (selectedFunction === "Função Linear") {
-      return "Função Linear: y = 2x + 3";
-    } else if (selectedFunction === "Função Exponencial") {
-      return "Função Exponencial: y = e^x";
-    } else if (selectedFunction === "Função Logarítmica") {
-      return "Função Logarítmica: y = log_b(x)";
+    switch (selectedFunction) {
+      case "Função Quadrática":
+        return "Função Quadrática: ax^2 + bx + c";
+      case "Função Linear":
+        return "Função Linear: y = 2x + 3";
+      case "Função Exponencial":
+        return "Função Exponencial: y = e^x";
+      case "Função Logarítmica":
+        return "Função Logarítmica: y = log_b(x)";
+      default:
+        return "";
     }
-    return "";
   };
 
   const calculateFunctions = () => {
     let value = parseFloat(inputValue) || 0;
     let resultValue = 0;
 
-    if (selectedFunction === "Função Quadrática") {
-      let coeficienteQuadratico = parseFloat(coeficienteQuadraticoValue) || 0;
-      let coeficienteLinear = parseFloat(coeficienteLinearValue) || 0;
-      let constanteQuadratica = parseFloat(constanteQuadraticaValue) || 0;
-      resultValue =
-        coeficienteQuadratico * Math.pow(value, 2) +
-        coeficienteLinear * value +
-        constanteQuadratica;
-    } else if (selectedFunction === "Função Linear") {
-      resultValue = 2 * value + 3;
-    } else if (selectedFunction === "Função Exponencial") {
-      resultValue = Math.exp(value);
-    } else if (selectedFunction === "Função Logarítmica") {
-      resultValue = Math.log(value); // Lógica básica para logaritmo natural
+    switch (selectedFunction) {
+      case "Função Quadrática":
+        let a = parseFloat(coeficienteQuadraticoValue) || 0;
+        let b = parseFloat(coeficienteLinearValue) || 0;
+        let c = parseFloat(constanteQuadraticaValue) || 0;
+        resultValue = a * Math.pow(value, 2) + b * value + c;
+        break;
+      case "Função Linear":
+        let m = parseFloat(coeficienteLinearValue) || 0;
+        let cLinear = parseFloat(constanteQuadraticaValue) || 0;
+        resultValue = m * value + cLinear;
+        break;
+      case "Função Exponencial":
+        resultValue = Math.exp(value);
+        break;
+      case "Função Logarítmica":
+        let baseLog = parseFloat(constanteQuadraticaValue) || Math.E;
+        resultValue = Math.log(value) / Math.log(baseLog);
+        break;
+      default:
+        break;
     }
 
     let steps = "Passos do cálculo:\n";
@@ -72,7 +83,7 @@ const Funçoes = () => {
               ? calculateLinearFunction(value)
               : selectedFunction === "Função Exponencial"
               ? calculateExponentialFunction(value)
-              : Math.log(value); // Lógica básica para logaritmo natural
+              : Math.log(value);
           }),
         },
       ],
@@ -82,18 +93,16 @@ const Funçoes = () => {
   };
 
   const calculateQuadraticFunction = (value) => {
-    let coeficienteQuadratico = parseFloat(coeficienteQuadraticoValue) || 0;
-    let coeficienteLinear = parseFloat(coeficienteLinearValue) || 0;
-    let constanteQuadratica = parseFloat(constanteQuadraticaValue) || 0;
-    return (
-      coeficienteQuadratico * Math.pow(value, 2) +
-      coeficienteLinear * value +
-      constanteQuadratica
-    );
+    let a = parseFloat(coeficienteQuadraticoValue) || 0;
+    let b = parseFloat(coeficienteLinearValue) || 0;
+    let c = parseFloat(constanteQuadraticaValue) || 0;
+    return a * Math.pow(value, 2) + b * value + c;
   };
 
   const calculateLinearFunction = (value) => {
-    return 2 * value + 3;
+    let m = parseFloat(coeficienteLinearValue) || 0;
+    let cLinear = parseFloat(constanteQuadraticaValue) || 0;
+    return m * value + cLinear;
   };
 
   const calculateExponentialFunction = (value) => {
@@ -126,6 +135,7 @@ const Funçoes = () => {
           onChangeText={(text) => setInputValue(text)}
           placeholder="Digite um valor para x"
         />
+
         {selectedFunction === "Função Quadrática" && (
           <>
             <TextInput
@@ -145,13 +155,43 @@ const Funçoes = () => {
             />
           </>
         )}
-        <TouchableOpacity
-          onPress={calculateFunctions}
-          style={styles.botao_calcular}
-        >
-          <Text style={styles.btn_text}>Calcular</Text>
-        </TouchableOpacity>
 
+        {selectedFunction === "Função Linear" && (
+          <>
+            <TextInput
+              value={coeficienteLinearValue}
+              onChangeText={(text) => setCoeficienteLinearValue(text)}
+              placeholder="Digite o coeficiente linear (m)"
+            />
+            <TextInput
+              value={constanteQuadraticaValue}
+              onChangeText={(text) => setConstanteQuadraticaValue(text)}
+              placeholder="Digite a constante (c)"
+            />
+          </>
+        )}
+
+        {selectedFunction === "Função Exponencial" && (
+          <>
+            <TextInput
+              value={baseExponencialValue}
+              onChangeText={(text) => setBaseExponencialValue(text)}
+              placeholder="Digite a base exponencial"
+            />
+          </>
+        )}
+
+        {selectedFunction === "Função Logarítmica" && (
+          <>
+            <TextInput
+              value={baseLogaritmicaValue}
+              onChangeText={(text) => setBaseLogaritmicaValue(text)}
+              placeholder="Digite a base logarítmica"
+            />
+          </>
+        )}
+
+        <Button title="Calcular Funções" onPress={calculateFunctions} />
         <Text style={{ fontWeight: "bold", fontSize: 18, marginTop: 20 }}>
           {result}
         </Text>
@@ -198,4 +238,4 @@ const Funçoes = () => {
   );
 };
 
-export default Funçoes;
+export default Funcoes;
