@@ -20,7 +20,7 @@ function MedioRoutes() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Inicio"
+        name="Math Helper"
         component={HomeScreen}
         options={{
           headerStyle: { backgroundColor: colors.primary },
@@ -47,7 +47,7 @@ function MedioRoutes() {
         }}
       />
       <Stack.Screen
-        name="Medio"
+        name="Ensino Medio"
         component={MedioTela}
         options={{
           headerStyle: { backgroundColor: colors.primary },
@@ -84,7 +84,7 @@ function MedioRoutes() {
         component={CongruencCalculator}
       />
       <Stack.Screen
-        name="Fundamental"
+        name=" Ensino Fundamental"
         component={FundamentalScreen}
         options={{
           headerStyle: { backgroundColor: colors.primary },

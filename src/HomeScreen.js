@@ -12,7 +12,7 @@ export default function HomeScreen() {
       <TouchableOpacity
         style={styles.botao_home}
         color={colors.primary}
-        onPress={() => navigation.navigate("Fundamental")}
+        onPress={() => navigation.navigate(" Ensino Fundamental")}
       >
         <Text style={styles.btn_text}>Ensino Fundamental</Text>
       </TouchableOpacity>
@@ -20,7 +20,7 @@ export default function HomeScreen() {
       <TouchableOpacity
         style={styles.botao_home}
         color={colors.primary}
-        onPress={() => navigation.navigate("Medio")}
+        onPress={() => navigation.navigate("Ensino Medio")}
       >
         <Text style={styles.btn_text}>Ensino Medio</Text>
       </TouchableOpacity>
@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
     color: "white",
     textAlign: "center",
     fontSize: 17,
+    fontWeight: "bold",
   },
 
   botao_home: {
