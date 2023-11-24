@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { View, Text, TextInput, Button, ScrollView } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { LineChart } from "react-native-chart-kit";
+import { TouchableOpacity } from "react-native";
+import styles from "../MedStyle";
 
 const Funçoes = () => {
   const [selectedFunction, setSelectedFunction] = useState("Função Quadrática");
@@ -144,7 +146,13 @@ const Funçoes = () => {
             />
           </>
         )}
-        <Button title="Calcular Funções" onPress={calculateFunctions} />
+        <TouchableOpacity
+          onPress={calculateFunctions}
+          style={styles.botao_calcular}
+        >
+          <Text style={styles.btn_text}>Calcular</Text>
+        </TouchableOpacity>
+
         <Text style={{ fontWeight: "bold", fontSize: 18, marginTop: 20 }}>
           {result}
         </Text>

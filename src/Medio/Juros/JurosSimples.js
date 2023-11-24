@@ -3,6 +3,7 @@ import { View, Text, TextInput, Button, StyleSheet } from "react-native";
 import { BarChart } from "react-native-chart-kit";
 import colors from "../../../colors";
 import styles from "../MedStyle";
+import { TouchableOpacity } from "react-native";
 
 export default function JurosSimples() {
   const [principal, setPrincipal] = useState("");
@@ -66,9 +67,6 @@ export default function JurosSimples() {
 
   return (
     <View style={styles.center}>
-      <Text>
-        <Text style={styles.font}>Calculadora de Juros Simples</Text>
-      </Text>
       <TextInput
         style={styles.inputs}
         placeholder="Valor Principal"
@@ -87,12 +85,14 @@ export default function JurosSimples() {
         onChangeText={(texto) => setTempo(texto)}
         keyboardType="numeric"
       />
-      <Button
-        title="Calcular"
+      <TouchableOpacity
         onPress={calcularJurosSimples}
-        color={colors.primary}
-        style={styles.calcular}
-      />
+        style={styles.botao_calcular}
+      >
+        <Text style={styles.btn_text}>Calcular</Text>
+      </TouchableOpacity>
+
+
       {resultado && (
         <Text>
           <Text style={estilos.resultado}>{resultado}</Text>
@@ -107,9 +107,7 @@ export default function JurosSimples() {
       )}
       {dadosDoGrafico && (
         <View style={estilos.contenedorDoGrafico}>
-          <Text>
-            <Text style={estilos.tituloDoGrafico}>Título do Gráfico</Text>
-          </Text>
+          <Text></Text>
           <BarChart
             data={dadosDoGrafico}
             width={380}

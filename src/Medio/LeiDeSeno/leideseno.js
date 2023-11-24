@@ -2,6 +2,8 @@ import colors from "../../../colors";
 import React, { useState } from "react";
 import { View, Text, TextInput, Button } from "react-native";
 import styles from "../MedStyle";
+import { TouchableOpacity } from "react-native";
+
 const CongruencCalculator = () => {
   const [ladoA, setLadoA] = useState("");
   const [ladoB, setLadoB] = useState("");
@@ -69,7 +71,6 @@ const CongruencCalculator = () => {
 
   return (
     <View style={styles.center}>
-      <Text style={styles.font}>Lei dos Senos</Text>
       <TextInput
         style={styles.inputs}
         placeholder="Lado A"
@@ -112,12 +113,14 @@ const CongruencCalculator = () => {
         value={anguloC}
         keyboardType="numeric"
       />
-      <Button
-        color={colors.primary}
-        title="Calcular"
+      <TouchableOpacity
         onPress={calcularLadoLeiDosSenos}
-      />
-      <Text>Resultado: {resultado}</Text>
+        style={styles.botao_calcular}
+      >
+        <Text style={styles.btn_text}>Calcular</Text>
+      </TouchableOpacity>
+
+      <Text style={styles.text}>Resultado: {resultado}</Text>
     </View>
   );
 };
