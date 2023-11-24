@@ -87,18 +87,21 @@ export default function JurosCompostos() {
     <View style={styles.center}>
       <TextInput
         style={styles.inputs}
+        placeholderTextColor={colors.primary}
         placeholder="Valor Principal"
         onChangeText={(texto) => setPrincipal(texto)}
         keyboardType="numeric"
       />
       <TextInput
         style={styles.inputs}
+        placeholderTextColor={colors.primary}
         placeholder="Taxa de Juros Anual (%)"
         onChangeText={(texto) => setTaxaDeJuros(texto)}
         keyboardType="numeric"
       />
       <TextInput
         style={styles.inputs}
+        placeholderTextColor={colors.primary}
         placeholder="Período (em anos)"
         onChangeText={(texto) => setTempo(texto)}
         keyboardType="numeric"

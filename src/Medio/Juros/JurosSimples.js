@@ -69,18 +69,21 @@ export default function JurosSimples() {
     <View style={styles.center}>
       <TextInput
         style={styles.inputs}
+        placeholderTextColor={colors.primary}
         placeholder="Valor Principal"
         onChangeText={(texto) => setPrincipal(texto)}
         keyboardType="numeric"
       />
       <TextInput
         style={styles.inputs}
+        placeholderTextColor={colors.primary}
         placeholder="Taxa de Juros Anual (%)"
         onChangeText={(texto) => setTaxaDeJuros(texto)}
         keyboardType="numeric"
       />
       <TextInput
         style={styles.inputs}
+        placeholderTextColor={colors.primary}
         placeholder="Período (em anos)"
         onChangeText={(texto) => setTempo(texto)}
         keyboardType="numeric"
@@ -91,7 +94,6 @@ export default function JurosSimples() {
       >
         <Text style={styles.btn_text}>Calcular</Text>
       </TouchableOpacity>
-
 
       {resultado && (
         <Text>

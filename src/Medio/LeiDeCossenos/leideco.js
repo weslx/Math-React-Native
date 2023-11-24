@@ -48,18 +48,21 @@ const TriangleCalculator = () => {
     <View style={styles.center}>
       <TextInput
         style={styles.inputs}
+        placeholderTextColor={colors.primary}
         onChangeText={setSideA}
         placeholder="Lado A"
         keyboardType="numeric"
       />
       <TextInput
         style={styles.inputs}
+        placeholderTextColor={colors.primary}
         onChangeText={setSideB}
         placeholder="Lado B"
         keyboardType="numeric"
       />
       <TextInput
         style={styles.inputs}
+        placeholderTextColor={colors.primary}
         onChangeText={setSideC}
         placeholder="Lado C"
         keyboardType="numeric"

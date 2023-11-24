@@ -73,6 +73,7 @@ const CongruencCalculator = () => {
     <View style={styles.center}>
       <TextInput
         style={styles.inputs}
+        placeholderTextColor={colors.primary}
         placeholder="Lado A"
         onChangeText={(text) => setLadoA(text)}
         value={ladoA}
@@ -81,12 +82,14 @@ const CongruencCalculator = () => {
       <TextInput
         style={styles.inputs}
         placeholder="Lado B"
+        placeholderTextColor={colors.primary}
         onChangeText={(text) => setLadoB(text)}
         value={ladoB}
         keyboardType="numeric"
       />
       <TextInput
         style={styles.inputs}
+        placeholderTextColor={colors.primary}
         placeholder="Lado C"
         onChangeText={(text) => setLadoC(text)}
         value={ladoC}
@@ -94,6 +97,7 @@ const CongruencCalculator = () => {
       />
       <TextInput
         style={styles.inputs}
+        placeholderTextColor={colors.primary}
         placeholder="Ângulo A"
         onChangeText={(text) => setAnguloA(text)}
         value={anguloA}
@@ -101,6 +105,7 @@ const CongruencCalculator = () => {
       />
       <TextInput
         style={styles.inputs}
+        placeholderTextColor={colors.primary}
         placeholder="Ângulo B"
         onChangeText={(text) => setAnguloB(text)}
         value={anguloB}
@@ -108,6 +113,7 @@ const CongruencCalculator = () => {
       />
       <TextInput
         style={styles.inputs}
+        placeholderTextColor={colors.primary}
         placeholder="Ângulo C"
         onChangeText={(text) => setAnguloC(text)}
         value={anguloC}
