@@ -59,6 +59,12 @@ const MedioTela = () => {
       >
         <Text style={styles.text}>Radiciação</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate("Matriz")}
+      >
+        <Text style={styles.text}>Matriz</Text>
+      </TouchableOpacity>
     </View>
   );
 };

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, TextInput, Button, ScrollView } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { LineChart } from "react-native-chart-kit";
+import colors from "../../../colors";
 
 const Funçoes = () => {
   const [selectedFunction, setSelectedFunction] = useState("Função Quadrática");

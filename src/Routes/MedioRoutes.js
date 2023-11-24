@@ -12,6 +12,7 @@ import TriangleCalculator from "../Medio/LeiDeCossenos/leideco.js";
 import Logaritma from "../Medio/Logaritma/Logaritma.js";
 import Exponenciação from "../Medio/Exponenciacao/exponenciacao.js";
 import Radiciação from "../Medio/Radiciacao/Radiciacao.js";
+import Matriz from "../Medio/Matriz/Matriz.js";
 
 const Stack = createStackNavigator();
 
@@ -112,6 +113,15 @@ function MedioRoutes() {
       <Stack.Screen
         name="Radiciação"
         component={Radiciação}
+        options={{
+          headerStyle: { backgroundColor: colors.primary },
+          headerTintColor: "#fff",
+          headerTitleStyle: { fontWeight: "bold" },
+        }}
+      />
+      <Stack.Screen
+        name="Matriz"
+        component={Matriz}
         options={{
           headerStyle: { backgroundColor: colors.primary },
           headerTintColor: "#fff",
