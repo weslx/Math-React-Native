@@ -106,7 +106,8 @@ const Funcoes = () => {
   };
 
   const calculateExponentialFunction = (value) => {
-    return Math.exp(value);
+    let baseExponencial = parseFloat(baseExponencialValue) || Math.E;
+    return Math.pow(baseExponencial, value);
   };
 
   return (
