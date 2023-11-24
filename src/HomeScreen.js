@@ -1,28 +1,29 @@
-import { StyleSheet, View, Image, Button,  } from "react-native";
+import { StyleSheet, View, Image, Button, Text } from "react-native";
 import colors from "../colors";
 import { useNavigation } from "@react-navigation/native";
+import { TouchableOpacity } from "react-native";
 
 export default function HomeScreen() {
   const navigation = useNavigation();
   return (
     <View style={styles.center}>
       <LogoWithName />
-      <View style={styles.buttonContainer}>
-        <Button
-          style={styles.buttonstyle}
-          title=" Ensino Fundamental"
-          color={colors.primary}
-          onPress={() => navigation.navigate("Fundamental")}
-        />
-      </View>
-      <View style={styles.buttonContainer}>
-        <Button
-          style={styles.buttonstyle}
-          title="Ensino Medio"
-          color={colors.primary}
-          onPress={() => navigation.navigate("Medio")}
-        />
-      </View>
+
+      <TouchableOpacity
+        style={styles.botao_home}
+        color={colors.primary}
+        onPress={() => navigation.navigate("Fundamental")}
+      >
+        <Text style={styles.btn_text}>Ensino Fundamental</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.botao_home}
+        color={colors.primary}
+        onPress={() => navigation.navigate("Medio")}
+      >
+        <Text style={styles.btn_text}>Ensino Medio</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -58,5 +59,20 @@ const styles = StyleSheet.create({
     width: 370,
     height: 300,
     borderRadius: 50,
+  },
+  btn_text: {
+    color: "white",
+    textAlign: "center",
+    fontSize: 17,
+  },
+
+  botao_home: {
+    backgroundColor: colors.primary,
+    height: 50,
+    width: "60%",
+    borderRadius: 15,
+    padding: 13,
+    marginBottom: 5,
+    marginTop: 15,
   },
 });

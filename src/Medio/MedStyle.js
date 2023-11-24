@@ -26,6 +26,20 @@ const styles = StyleSheet.create({
   text: {
     color: colors.primary,
   },
+
+  btn_text: {
+    color: "white",
+    textAlign: "center",
+  },
+  botao_calcular: {
+    backgroundColor: colors.primary,
+    height: 40,
+    width: "50%",
+    borderRadius: 10,
+    padding: 10,
+    marginBottom: 15,
+    marginTop: 15,
+  },
 });
 
 export default styles;

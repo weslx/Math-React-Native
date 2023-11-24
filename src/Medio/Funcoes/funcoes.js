@@ -145,7 +145,13 @@ const Funçoes = () => {
             />
           </>
         )}
-        <Button title="Calcular Funções" onPress={calculateFunctions} />
+        <TouchableOpacity
+          onPress={calculateFunctions}
+          style={styles.botao_calcular}
+        >
+          <Text style={styles.btn_text}>Calcular</Text>
+        </TouchableOpacity>
+
         <Text style={{ fontWeight: "bold", fontSize: 18, marginTop: 20 }}>
           {result}
         </Text>

@@ -2,6 +2,8 @@ import colors from "../../../colors";
 import React, { useState } from "react";
 import { View, Text, TextInput, Button } from "react-native";
 import styles from "../MedStyle";
+import { TouchableOpacity } from "react-native";
+
 const CongruencCalculator = () => {
   const [ladoA, setLadoA] = useState("");
   const [ladoB, setLadoB] = useState("");
@@ -69,9 +71,9 @@ const CongruencCalculator = () => {
 
   return (
     <View style={styles.center}>
-      <Text style={styles.font}>Lei dos Senos</Text>
       <TextInput
         style={styles.inputs}
+        placeholderTextColor={colors.primary}
         placeholder="Lado A"
         onChangeText={(text) => setLadoA(text)}
         value={ladoA}
@@ -80,12 +82,14 @@ const CongruencCalculator = () => {
       <TextInput
         style={styles.inputs}
         placeholder="Lado B"
+        placeholderTextColor={colors.primary}
         onChangeText={(text) => setLadoB(text)}
         value={ladoB}
         keyboardType="numeric"
       />
       <TextInput
         style={styles.inputs}
+        placeholderTextColor={colors.primary}
         placeholder="Lado C"
         onChangeText={(text) => setLadoC(text)}
         value={ladoC}
@@ -93,6 +97,7 @@ const CongruencCalculator = () => {
       />
       <TextInput
         style={styles.inputs}
+        placeholderTextColor={colors.primary}
         placeholder="Ângulo A"
         onChangeText={(text) => setAnguloA(text)}
         value={anguloA}
@@ -100,6 +105,7 @@ const CongruencCalculator = () => {
       />
       <TextInput
         style={styles.inputs}
+        placeholderTextColor={colors.primary}
         placeholder="Ângulo B"
         onChangeText={(text) => setAnguloB(text)}
         value={anguloB}
@@ -107,17 +113,20 @@ const CongruencCalculator = () => {
       />
       <TextInput
         style={styles.inputs}
+        placeholderTextColor={colors.primary}
         placeholder="Ângulo C"
         onChangeText={(text) => setAnguloC(text)}
         value={anguloC}
         keyboardType="numeric"
       />
-      <Button
-        color={colors.primary}
-        title="Calcular"
+      <TouchableOpacity
         onPress={calcularLadoLeiDosSenos}
-      />
-      <Text>Resultado: {resultado}</Text>
+        style={styles.botao_calcular}
+      >
+        <Text style={styles.btn_text}>Calcular</Text>
+      </TouchableOpacity>
+
+      <Text style={styles.text}>Resultado: {resultado}</Text>
     </View>
   );
 };

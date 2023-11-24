@@ -3,6 +3,7 @@ import { View, Text, TextInput, Button } from "react-native";
 import styles from "../MedStyle";
 import colors from "../../../colors";
 import { StyleSheet } from "react-native";
+import { TouchableOpacity } from "react-native";
 
 const TriangleCalculator = () => {
   const [sideA, setSideA] = useState(0);
@@ -45,32 +46,33 @@ const TriangleCalculator = () => {
 
   return (
     <View style={styles.center}>
-      <Text>
-        <Text style={styles.font}>Lei dos Cossenos</Text>
-      </Text>
       <TextInput
         style={styles.inputs}
+        placeholderTextColor={colors.primary}
         onChangeText={setSideA}
         placeholder="Lado A"
         keyboardType="numeric"
       />
       <TextInput
         style={styles.inputs}
+        placeholderTextColor={colors.primary}
         onChangeText={setSideB}
         placeholder="Lado B"
         keyboardType="numeric"
       />
       <TextInput
         style={styles.inputs}
+        placeholderTextColor={colors.primary}
         onChangeText={setSideC}
         placeholder="Lado C"
         keyboardType="numeric"
       />
-      <Button
-        color={colors.primary}
+      <TouchableOpacity
         onPress={calculateTriangle}
-        title="Calcular"
-      />
+        style={styles.botao_calcular}
+      >
+        <Text style={styles.btn_text}>Calcular</Text>
+      </TouchableOpacity>
       <Text style={styles.text}>Ângulo A: {angleA}</Text>
       <Text style={styles.text}>Ângulo B: {angleB}</Text>
       <Text style={styles.text}>Ângulo C: {angleC}</Text>

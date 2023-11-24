@@ -3,6 +3,7 @@ import { View, Text, TextInput, Button, StyleSheet } from "react-native";
 import { BarChart } from "react-native-chart-kit";
 import colors from "../../../colors";
 import styles from "../MedStyle";
+import { TouchableOpacity } from "react-native";
 
 export default function JurosCompostos() {
   const [principal, setPrincipal] = useState("");
@@ -39,7 +40,7 @@ export default function JurosCompostos() {
     });
 
     const colors = Array(dadosCompostos.length).fill(
-      (opacity = 1) => `rgba(0, 0, 0, ${opacity})`
+      (opacity = 1) => `rgba(255, 255,251, ${opacity})`
     );
 
     const dadosArredondados = dadosCompostos.map((valor) =>
@@ -47,7 +48,7 @@ export default function JurosCompostos() {
     );
 
     setDadosDoGrafico({
-      labels: Array.from({ length: t + 1 }, (_, i) => `Ano ${i}`),
+      labels: Array.from({ length: t + 1 }, (_, i) => `${i}°ano`),
       datasets: [
         {
           data: dadosArredondados,
@@ -84,36 +85,36 @@ export default function JurosCompostos() {
 
   return (
     <View style={styles.center}>
-      <Text>
-        <Text style={styles.font}>Calculadora de Juros Compostos</Text>
-      </Text>
       <TextInput
         style={styles.inputs}
+        placeholderTextColor={colors.primary}
         placeholder="Valor Principal"
         onChangeText={(texto) => setPrincipal(texto)}
         keyboardType="numeric"
       />
       <TextInput
         style={styles.inputs}
+        placeholderTextColor={colors.primary}
         placeholder="Taxa de Juros Anual (%)"
         onChangeText={(texto) => setTaxaDeJuros(texto)}
         keyboardType="numeric"
       />
       <TextInput
         style={styles.inputs}
+        placeholderTextColor={colors.primary}
         placeholder="Período (em anos)"
         onChangeText={(texto) => setTempo(texto)}
         keyboardType="numeric"
       />
-      <Button
-        color={colors.primary}
-        title="Calcular"
+      <TouchableOpacity
         onPress={calcularJurosCompostos}
-      />
+        style={styles.botao_calcular}
+      >
+        <Text style={styles.btn_text}>Calcular</Text>
+      </TouchableOpacity>
       {resultado && (
         <Text>
-          {" "}
-          <Text style={estilos.resultado}>{resultado}</Text>{" "}
+          <Text style={estilos.resultado}>{resultado}</Text>
         </Text>
       )}
 
@@ -126,8 +127,8 @@ export default function JurosCompostos() {
             chartConfig={{
               backgroundGradientFrom: colors.primary,
               backgroundGradientTo: colors.primary,
-              color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-              labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+              color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+              labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
               strokeWidth: 2,
               barPercentage: 0.7,
               withDots: false,
@@ -139,7 +140,7 @@ export default function JurosCompostos() {
               marginVertical: 8,
               borderRadius: 16,
               backgroundColor: "#F0F0F0",
-              borderWidth: 1,
+              borerWidth: 1,
               borderColor: "#E0E0E0",
             }}
             withInnerLines={false}

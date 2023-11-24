@@ -39,7 +39,7 @@ const FundamentalScreen = () => {
       {/* Adicione esta View por cima de tudo */}
       <View style={styles.lockScreen}>
         <LockImage />
-        <Text style={styles.lockText}>Na próxima versão</Text>
+        <Text style={styles.lockText}>Em desenvolvimento</Text>
       </View>
     </View>
   );
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    backgroundColor: "rgba(0, 0, 0, 0.6)",
     zIndex: 1,
   },
   lockImage: {
