@@ -1,14 +1,14 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import MedioTela from "../MedioTela";
-import FundamentalScreen from "../FundamentalTela";
+import MedioTela from "../MedioTela.js";
+import FundamentalScreen from "../FundamentalTela.js";
 import HomeScreen from "../HomeScreen.js";
-import colors from "../../colors";
-import CongruencCalculator from "../Medio/LeiDeSeno/leideseno";
-import JurosCompostos from "../Medio/Juros/JurosCompostos";
-import JurosSimples from "../Medio/Juros/JurosSimples";
-import CalculadoraLogaritimo from "../Medio/Logaritma/logaritma";
-import TriangleCalculator from "../Medio/LeiDeCossenos/leideco";
+import colors from "../../colors.js";
+import CongruencCalculator from "../Medio/LeiDeSeno/leideseno.js";
+import JurosCompostos from "../Medio/Juros/JurosCompostos.js";
+import JurosSimples from "../Medio/Juros/JurosSimples.js";
+import CalculadoraLogaritimo from "../Medio/Logaritma/logaritma.js";
+import TriangleCalculator from "../Medio/LeiDeCossenos/leideco.js";
 
 const Stack = createStackNavigator();
 

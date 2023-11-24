@@ -1,7 +1,5 @@
-import { StyleSheet, View, Image, Button } from "react-native";
-
+import { StyleSheet, View, Image, Button,  } from "react-native";
 import colors from "../colors";
-
 import { useNavigation } from "@react-navigation/native";
 
 export default function HomeScreen() {
@@ -11,7 +9,7 @@ export default function HomeScreen() {
       <LogoWithName />
       <View style={styles.buttonContainer}>
         <Button
-          style={styles.buttonContainer}
+          style={styles.buttonstyle}
           title=" Ensino Fundamental"
           color={colors.primary}
           onPress={() => navigation.navigate("Fundamental")}

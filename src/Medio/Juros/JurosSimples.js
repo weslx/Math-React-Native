@@ -29,13 +29,16 @@ export default function JurosSimples() {
       const montante = p + p * r * i;
       dadosSimples.push(montante);
     }
+    const colors = Array(dadosSimples.length).fill(
+      (opacity = 1) => `rgba(0, 0, 0, ${opacity})`
+    );
 
     setDadosDoGrafico({
       labels: Array.from({ length: t + 1 }, (_, i) => `Ano ${i}`),
       datasets: [
         {
           data: dadosSimples,
-          color: (opacity = 1) => `rgba(0, 0, 255, ${opacity})`,
+          colors: colors, // Altera a cor para o array de cores
           strokeWidth: 2,
         },
       ],
@@ -102,21 +105,28 @@ export default function JurosSimples() {
             width={350}
             height={200}
             chartConfig={{
-              backgroundGradientFrom: "#f1f8e9",
-              backgroundGradientTo: "#f1f8e9",
-              color: (opacity = 1) => `rgba(76, 175, 80, ${opacity})`, // Altera a cor para verde
+              backgroundGradientFrom: colors.primary,
+              backgroundGradientTo: colors.primary,
+              color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`, // Altera a cor para preto
               labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`, // Altera a cor da etiqueta para preto
               strokeWidth: 2,
-              barPercentage: 0.5, // Reduz a largura das barras para melhorar a estética
-              withDots: false, // Adiciona essa linha para remover a linha pontilhada
+              barPercentage: 0.7,
+              withDots: false,
               propsForLabels: {
-                strokeWidth: 2, // Adiciona essa linha para garantir que a linha seja contínua
+                strokeWidth: 2,
               },
             }}
             style={{
-              marginVertical: 8, // Adiciona margem vertical para melhor separação visual
-              borderRadius: 16, // Adiciona bordas arredondadas para estética aprimorada
+              marginVertical: 8,
+              borderRadius: 16,
+              backgroundColor: "#F0F0F0",
+              borderWidth: 1,
+              borderColor: "#E0E0E0",
             }}
+            withInnerLines={false}
+            showValuesOnTopOfBars
+            withCustomBarColorFromData
+            flatColor={true}
           />
         </View>
       )}
@@ -132,5 +142,10 @@ const estilos = StyleSheet.create({
   },
   contenedorDoGrafico: {
     marginTop: 20,
+  },
+  tituloDoGrafico: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 10,
   },
 });

@@ -39,7 +39,7 @@ const MedioTela = () => {
         style={styles.button}
         onPress={() => navigation.navigate("Logaritma")}
       >
-        <Text style={styles.text}>Logaritmo</Text>
+        <Text style={styles.text}>Funções</Text>
       </TouchableOpacity>
     </View>
   );
@@ -50,22 +50,24 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    gap: 20,
     backgroundColor: colors.background,
+    marginBottom: 10,
   },
   button: {
     justifyContent: "center",
     alignItems: "center",
-    height: 100,
-    marginBottom: 10,
+    height: 50,
     width: 150,
+    backgroundColor: colors.primary,
     borderColor: colors.primary,
     borderWidth: 5,
-    borderRadius: 20,
+    borderRadius: 50,
   },
   text: {
     fontWeight: "bold",
     fontSize: 15,
-    color: colors.primary,
+    color: "white",
   },
 });
 
