@@ -7,8 +7,9 @@ import colors from "../../colors.js";
 import CongruencCalculator from "../Medio/LeiDeSeno/leideseno.js";
 import JurosCompostos from "../Medio/Juros/JurosCompostos.js";
 import JurosSimples from "../Medio/Juros/JurosSimples.js";
-import CalculadoraLogaritimo from "../Medio/Logaritma/logaritma.js";
+import Funções from "../Medio/Logaritma/funcoes.js";
 import TriangleCalculator from "../Medio/LeiDeCossenos/leideco.js";
+import Logaritma from "../Medio/Funcoes/Logaritma.js";
 
 const Stack = createStackNavigator();
 
@@ -25,8 +26,8 @@ function MedioRoutes() {
         }}
       />
       <Stack.Screen
-        name="Logaritma"
-        component={CalculadoraLogaritimo}
+        name="Funções"
+        component={Funções}
         options={{
           headerStyle: { backgroundColor: colors.primary },
           headerTintColor: "#fff",
@@ -82,6 +83,15 @@ function MedioRoutes() {
       <Stack.Screen
         name="Fundamental"
         component={FundamentalScreen}
+        options={{
+          headerStyle: { backgroundColor: colors.primary },
+          headerTintColor: "#fff",
+          headerTitleStyle: { fontWeight: "bold" },
+        }}
+      />
+      <Stack.Screen
+        name="Logaritma"
+        component={Logaritma}
         options={{
           headerStyle: { backgroundColor: colors.primary },
           headerTintColor: "#fff",

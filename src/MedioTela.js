@@ -37,9 +37,15 @@ const MedioTela = () => {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate("Logaritma")}
+        onPress={() => navigation.navigate("Funções")}
       >
         <Text style={styles.text}>Funções</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate("Logaritma")}
+      >
+        <Text style={styles.text}>Logaritma</Text>
       </TouchableOpacity>
     </View>
   );

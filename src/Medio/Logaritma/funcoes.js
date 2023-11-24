@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, Text, TextInput, Button, ScrollView } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 
-const CalculadoraLogaritimo = () => {
+const Funções = () => {
   const [selectedFunction, setSelectedFunction] = useState("Função Quadrática");
   const [result, setResult] = useState("");
   const [calculationSteps, setCalculationSteps] = useState("");
@@ -129,4 +129,4 @@ const CalculadoraLogaritimo = () => {
   );
 };
 
-export default CalculadoraLogaritimo;
+export default Funções;
