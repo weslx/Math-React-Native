@@ -23,6 +23,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 25,
   },
+  text: {
+    color: colors.primary,
+  },
 });
 
 export default styles;
