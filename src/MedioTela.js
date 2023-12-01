@@ -39,7 +39,7 @@ const MedioTela = () => {
         style={styles.button}
         onPress={() => navigation.navigate("Funções")}
       >
-        <Text style={styles.text}>Funções</Text>
+        <Text style={styles.text}>Funções de 2°</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
@@ -65,6 +65,12 @@ const MedioTela = () => {
       >
         <Text style={styles.text}>Matriz</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate(" ")}
+      >
+        <Text style={styles.text}></Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -72,12 +78,15 @@ const MedioTela = () => {
 const styles = StyleSheet.create({
   center: {
     flex: 1,
+    flexDirection: "row",
+    flexWrap: "wrap",
     justifyContent: "center",
     alignItems: "center",
-    gap: 20,
+    gap: 8,
+    paddingTop: 200,
     backgroundColor: colors.background,
-    marginBottom: 10,
   },
+
   button: {
     justifyContent: "center",
     alignItems: "center",
@@ -85,8 +94,8 @@ const styles = StyleSheet.create({
     width: 150,
     backgroundColor: colors.primary,
     borderColor: colors.primary,
-    borderWidth: 5,
-    borderRadius: 50,
+    borderWidth: 4,
+    borderRadius: 40,
   },
   text: {
     fontWeight: "bold",
