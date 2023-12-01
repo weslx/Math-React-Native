@@ -61,9 +61,10 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   logo: {
-    width: 370,
-    height: 300,
+    width: 350,
+    height: 280,
     borderRadius: 50,
+    marginBottom: 115,
   },
   btn_text: {
     color: "white",

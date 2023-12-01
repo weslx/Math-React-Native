@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "math",
-    "slug": "math",
+    "name": "easy math",
+    "slug": "easy math",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -29,5 +29,5 @@
     "sdkVersion": "49.0.0",
     "extra": {}
   },
-  "name": "math"
+  "name": "easy math"
 }

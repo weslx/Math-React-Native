@@ -20,12 +20,10 @@ function MedioRoutes() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Math Helper"
+        name="  "
         component={HomeScreen}
         options={{
-          headerStyle: { backgroundColor: colors.primary },
-          headerTintColor: "#fff",
-          headerTitleStyle: { fontWeight: "bold" },
+          headerStyle: { backgroundColor: "#f2f2f2" },
         }}
       />
       <Stack.Screen
