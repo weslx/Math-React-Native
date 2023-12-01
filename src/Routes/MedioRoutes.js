@@ -7,7 +7,7 @@ import colors from "../../colors.js";
 import CongruencCalculator from "../Medio/LeiDeSeno/leideseno.js";
 import JurosCompostos from "../Medio/Juros/JurosCompostos.js";
 import JurosSimples from "../Medio/Juros/JurosSimples.js";
-import segundograu from "../Medio/Funcoes/funcoes.js";
+import Segundograu from "../Medio/Funcoes/funcoes.js";
 import TriangleCalculator from "../Medio/LeiDeCossenos/leideco.js";
 import Logaritma from "../Medio/Logaritma/Logaritma.js";
 import Exponenciação from "../Medio/Exponenciacao/exponenciacao.js";
@@ -28,7 +28,7 @@ function MedioRoutes() {
       />
       <Stack.Screen
         name="Funções"
-        component={segundograu}
+        component={Segundograu}
         options={{
           headerStyle: { backgroundColor: colors.primary },
           headerTintColor: "#fff",
