@@ -11,6 +11,8 @@ const MedioTela = () => {
 
   return (
     <View style={styles.center}>
+      <Logohead />
+
       <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.navigate("Juros Compostos")}
@@ -83,6 +85,17 @@ const LogoWithName = () => {
     </View>
   );
 };
+const Logohead = () => {
+  return (
+    <View>
+      <Image
+        source={require("../assets/logo_alternativa.png")}
+        style={styles.logo1}
+        resizeMode="contain"
+      />
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   center: {
@@ -92,7 +105,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     gap: 8,
-    paddingTop: 200,
+
     backgroundColor: colors.background,
   },
 
@@ -125,6 +138,9 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     height: 290,
     marginLeft: 180,
+  },
+  logo1: {
+    height: 190,
   },
 });
 
