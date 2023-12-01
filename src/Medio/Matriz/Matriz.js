@@ -1,259 +1,241 @@
 import React, { useState } from "react";
 import {
   View,
-  Text,
   TextInput,
-  TouchableOpacity,
+  Button,
+  Text,
   StyleSheet,
+  Dimensions,
+  Picker,
 } from "react-native";
-import { Picker } from "@react-native-picker/picker";
-import colors from "../../../colors";
-import math from "mathjs";
 
 const Matriz = () => {
-  const [operation, setOperation] = useState("");
-  const [matrixOrder, setMatrixOrder] = useState("");
+  const [rowsA, setRowsA] = useState(0);
+  const [colsA, setColsA] = useState(0);
+  const [rowsB, setRowsB] = useState(0);
+  const [colsB, setColsB] = useState(0);
   const [matrixA, setMatrixA] = useState([]);
   const [matrixB, setMatrixB] = useState([]);
-  const [result, setResult] = useState("");
+  const [result, setResult] = useState([]);
+  const [operation, setOperation] = useState("");
+  const [multiplier, setMultiplier] = useState(1);
 
-  const handleOperationChange = (value) => {
-    setOperation(value);
+  const windowWidth = Dimensions.get("window").width;
+
+  const handleOperation = () => {
+    if (operation === "add" || operation === "sub") {
+      if (rowsA !== rowsB || colsA !== colsB) {
+        alert(
+          "As matrizes devem ter as mesmas dimensões para serem somadas ou subtraídas."
+        );
+        return;
+      }
+    } else if (operation === "mulMatrices") {
+      if (colsA !== rowsB) {
+        alert(
+          "O número de colunas da primeira matriz deve ser igual ao número de linhas da segunda matriz para a multiplicação."
+        );
+        return;
+      }
+    }
+    let res = Array(rowsA)
+      .fill()
+      .map(() => Array(colsA).fill(0));
+    for (let i = 0; i < rowsA; i++) {
+      for (let j = 0; j < colsA; j++) {
+        if (operation === "add") {
+          res[i][j] = matrixA[i][j] + matrixB[i][j];
+        } else if (operation === "sub") {
+          res[i][j] = matrixA[i][j] - matrixB[i][j];
+        } else if (operation === "mul") {
+          res[i][j] = matrixA[i][j] * multiplier;
+        } else if (operation === "mulMatrices") {
+          for (let k = 0; k < colsA; k++) {
+            res[i][j] += matrixA[i][k] * matrixB[k][j];
+          }
+        }
+      }
+    }
+    setResult(res);
+  };
+
+  const createMatrices = () => {
+    setMatrixA(
+      Array(rowsA)
+        .fill()
+        .map(() => Array(colsA).fill(0))
+    );
+    if (operation !== "mul") {
+      setMatrixB(
+        Array(rowsB)
+          .fill()
+          .map(() => Array(colsB).fill(0))
+      );
+    }
+  };
+
+  const resetOperation = (itemValue) => {
+    setOperation(itemValue);
+    setRowsA(0);
+    setColsA(0);
+    setRowsB(0);
+    setColsB(0);
     setMatrixA([]);
     setMatrixB([]);
-    setResult("");
-  };
-
-  const handleMatrixOrderChange = (value) => {
-    setMatrixOrder(value);
-    setMatrixA(
-      new Array(parseInt(value))
-        .fill("")
-        .map(() => new Array(parseInt(value)).fill(""))
-    );
-    setMatrixB(
-      new Array(parseInt(value))
-        .fill("")
-        .map(() => new Array(parseInt(value)).fill(""))
-    );
-    setResult("");
-  };
-
-  const handleMatrixValueChange = (value, row, col, matrix) => {
-    const updatedMatrix = [...matrix];
-    updatedMatrix[row][col] = value;
-    if (matrix === matrixA) {
-      setMatrixA(updatedMatrix);
-    } else {
-      setMatrixB(updatedMatrix);
-    }
-  };
-
-  const performOperation = () => {
-    if (operation === "scalarMultiplication") {
-      // Multiplicação por um número
-      // Verifica se foi inserido um número válido
-      if (matrixA.length === 0 || isNaN(parseFloat(matrixB[0][0]))) {
-        setResult("Insira uma matriz e um número válido para a multiplicação.");
-        return;
-      }
-
-      const scalar = parseFloat(matrixB[0][0]);
-      const resultMatrix = math.multiply(parseFloat(matrixA), scalar);
-      setResult(`Resultado:\n${math.format(resultMatrix, { precision: 14 })}`);
-    } else if (operation === "matrixMultiplication") {
-      // Multiplicação entre matrizes
-      if (matrixA.length === 0 || matrixB.length === 0) {
-        setResult("Insira ambas as matrizes para a multiplicação.");
-        return;
-      }
-
-      const resultMatrix = math.multiply(
-        math.matrix(matrixA),
-        math.matrix(matrixB)
-      );
-      setResult(`Resultado:\n${math.format(resultMatrix, { precision: 14 })}`);
-    } else {
-      // Adição ou subtração
-      if (matrixA.length === 0 || matrixB.length === 0) {
-        setResult("Insira ambas as matrizes para a operação.");
-        return;
-      }
-
-      const mathOperation = operation === "addition" ? math.add : math.subtract;
-      const resultMatrix = mathOperation(
-        math.matrix(matrixA),
-        math.matrix(matrixB)
-      );
-      setResult(`Resultado:\n${math.format(resultMatrix, { precision: 14 })}`);
-    }
-  };
-
-  const renderMatrixInputs = (matrix, setMatrix) => {
-    return (
-      <View style={styles.matrixContainer}>
-        {matrix.map((row, i) => (
-          <View style={styles.matrixRow} key={`row-${i}`}>
-            {row.map((cell, j) => (
-              <TextInput
-                key={`cell-${i}-${j}`}
-                style={styles.matrixInput}
-                keyboardType="numeric"
-                value={cell}
-                onChangeText={(value) =>
-                  handleMatrixValueChange(value, i, j, matrix)
-                }
-              />
-            ))}
-          </View>
-        ))}
-      </View>
-    );
+    setResult([]);
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Calculadora de Matrizes</Text>
-      <Picker
-        style={styles.picker}
-        selectedValue={operation}
-        onValueChange={(value) => handleOperationChange(value)}
-      >
-        <Picker.Item label="Selecione uma operação..." value="" />
-        <Picker.Item label="Adição" value="addition" />
-        <Picker.Item label="Subtração" value="subtraction" />
-        <Picker.Item
-          label="Multiplicação por um número"
-          value="scalarMultiplication"
-        />
-        <Picker.Item
-          label="Multiplicação entre matrizes"
-          value="matrixMultiplication"
-        />
+    <View>
+      <Picker selectedValue={operation} onValueChange={resetOperation}>
+        <Picker.Item label="Selecione uma operação" value="" />
+        <Picker.Item label="Adição" value="add" />
+        <Picker.Item label="Subtração" value="sub" />
+        <Picker.Item label="Multiplicação por um número" value="mul" />
+        <Picker.Item label="Multiplicação de matrizes" value="mulMatrices" />
       </Picker>
       {operation !== "" && (
-        <View style={styles.inputContainer}>
-          <Text style={styles.inputLabel}>Ordem da Matriz:</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Insira a ordem da matriz"
-            keyboardType="numeric"
-            value={matrixOrder}
-            onChangeText={(value) => handleMatrixOrderChange(value)}
-          />
-        </View>
-      )}
-      {operation !== "" && matrixOrder !== "" && (
-        <View style={styles.matricesContainer}>
-          <View style={styles.matrix}>
-            <Text style={styles.matrixLabel}>Matriz A:</Text>
-            {renderMatrixInputs(matrixA, setMatrixA)}
+        <>
+          <View style={styles.row}>
+            <View style={styles.column}>
+              <Text>Matriz A</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Linhas"
+                onChangeText={(text) => setRowsA(parseInt(text))}
+              />
+              <TextInput
+                style={styles.input}
+                placeholder="Colunas"
+                onChangeText={(text) => setColsA(parseInt(text))}
+              />
+            </View>
+            {operation !== "mul" && (
+              <View style={styles.column}>
+                <Text>Matriz B</Text>
+                <TextInput
+                  style={styles.input}
+                  placeholder="Linhas"
+                  onChangeText={(text) => setRowsB(parseInt(text))}
+                />
+                <TextInput
+                  style={styles.input}
+                  placeholder="Colunas"
+                  onChangeText={(text) => setColsB(parseInt(text))}
+                />
+              </View>
+            )}
           </View>
-          {operation !== "scalarMultiplication" && (
-            <View style={styles.matrix}>
-              <Text style={styles.matrixLabel}>Matriz B:</Text>
-              {renderMatrixInputs(matrixB, setMatrixB)}
+          <Button title="Criar Matrizes" onPress={createMatrices} />
+          <View style={styles.row}>
+            {matrixA.length > 0 && (
+              <View>
+                <Text>Matriz A</Text>
+                {matrixA.map((row, i) => (
+                  <View key={i} style={{ flexDirection: "row" }}>
+                    {row.map((col, j) => (
+                      <TextInput
+                        style={[styles.input, { width: windowWidth / colsA }]}
+                        key={j}
+                        onChangeText={(text) => {
+                          let temp = [...matrixA];
+                          temp[i][j] = parseInt(text);
+                          setMatrixA(temp);
+                        }}
+                      />
+                    ))}
+                  </View>
+                ))}
+              </View>
+            )}
+            {matrixB.length > 0 && (
+              <View>
+                <Text>Matriz B</Text>
+                {matrixB.map((row, i) => (
+                  <View key={i} style={{ flexDirection: "row" }}>
+                    {row.map((col, j) => (
+                      <TextInput
+                        style={[styles.input, { width: windowWidth / colsB }]}
+                        key={j}
+                        onChangeText={(text) => {
+                          let temp = [...matrixB];
+                          temp[i][j] = parseInt(text);
+                          setMatrixB(temp);
+                        }}
+                      />
+                    ))}
+                  </View>
+                ))}
+              </View>
+            )}
+          </View>
+          {operation === "mul" && matrixA.length > 0 && (
+            <View>
+              <TextInput
+                style={styles.input}
+                placeholder="Número multiplicador"
+                onChangeText={(text) => setMultiplier(parseInt(text))}
+              />
             </View>
           )}
-        </View>
+          {matrixA.length > 0 &&
+            (matrixB.length > 0 || operation === "mul") && (
+              <Button
+                title={
+                  operation === "add"
+                    ? "Somar Matrizes"
+                    : operation === "sub"
+                    ? "Subtrair Matrizes"
+                    : operation === "mul"
+                    ? "Multiplicar Matriz"
+                    : "Multiplicar Matrizes"
+                }
+                onPress={handleOperation}
+              />
+            )}
+          {result.length > 0 && (
+            <>
+              <Text>Resultado</Text>
+              {result.map((row, i) => (
+                <View key={i} style={{ flexDirection: "row" }}>
+                  {row.map((col, j) => (
+                    <Text
+                      key={j}
+                      style={{
+                        width: windowWidth / colsA,
+                        textAlign: "center",
+                      }}
+                    >
+                      {col}
+                    </Text>
+                  ))}
+                </View>
+              ))}
+            </>
+          )}
+        </>
       )}
-      {operation !== "" && (
-        <TouchableOpacity style={styles.button} onPress={performOperation}>
-          <Text style={styles.buttonText}>Calcular</Text>
-        </TouchableOpacity>
-      )}
-      {result !== "" && <Text style={styles.result}>{result}</Text>}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "white",
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 20,
-    color: colors.primary,
-  },
-  picker: {
-    borderWidth: 1,
-    borderColor: colors.primary,
-    borderRadius: 5,
-    padding: 8,
-    width: 250,
-    marginBottom: 20,
-  },
-  inputContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 20,
-  },
-  inputLabel: {
-    marginRight: 10,
-    fontSize: 16,
-  },
   input: {
+    height: 40,
+    borderColor: "gray",
     borderWidth: 1,
-    borderColor: colors.primary,
-    borderRadius: 5,
-    padding: 8,
-    width: 100,
+    flex: 1,
+    margin: 5,
   },
-  matricesContainer: {
+  row: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginBottom: 20,
+    alignItems: "center",
   },
-  matrix: {
-    borderWidth: 1,
-    borderColor: colors.primary,
-    padding: 5,
-    borderRadius: 5,
-  },
-  matrixLabel: {
-    fontSize: 16,
-    fontWeight: "bold",
-    marginBottom: 5,
-    color: colors.primary,
-  },
-  matrixContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
-  },
-  matrixRow: {
-    flexDirection: "row",
-    marginBottom: 5,
-  },
-  matrixInput: {
-    borderWidth: 1,
-    borderColor: colors.primary,
-    borderRadius: 5,
-    padding: 5,
-    width: 40,
-    marginRight: 5,
-    textAlign: "center",
-  },
-  button: {
-    backgroundColor: colors.primary,
-    padding: 15,
-    borderRadius: 50,
-    marginBottom: 20,
-  },
-  buttonText: {
-    color: "white",
-    fontSize: 18,
-    textAlign: "center",
-  },
-  result: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: colors.primary,
-    textAlign: "center",
+  column: {
+    flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
 });
 
