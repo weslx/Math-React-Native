@@ -92,7 +92,9 @@ export default function JurosSimples() {
         onPress={calcularJurosSimples}
         style={styles.botao_calcular}
       >
-        <Text style={styles.btn_text}>Calcular</Text>
+        <Text>
+          <Text style={styles.btn_text}>Calcular</Text>
+        </Text>
       </TouchableOpacity>
 
       {resultado && (
@@ -109,7 +111,6 @@ export default function JurosSimples() {
       )}
       {dadosDoGrafico && (
         <View style={estilos.contenedorDoGrafico}>
-          <Text></Text>
           <BarChart
             data={dadosDoGrafico}
             width={380}
