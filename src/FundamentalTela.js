@@ -88,6 +88,7 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     justifyContent: "center",
+    height: 700,
     alignItems: "center",
     backgroundColor: "rgba(0, 0, 0, 0.6)",
     zIndex: 1,
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
   lockText: {
     color: "white",
     fontSize: 20,
-    marginTop: 10,
+    marginBottom: 50,
   },
 });
 
