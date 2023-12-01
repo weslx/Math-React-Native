@@ -1,10 +1,15 @@
-import { StyleSheet, View, Image, Button, Text } from "react-native";
+import { StyleSheet, View, Image, Text } from "react-native";
 import colors from "../colors";
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native";
 
 export default function HomeScreen() {
   const navigation = useNavigation();
+
+  const handleNavigation = (screen) => {
+    navigation.navigate(screen);
+  };
+
   return (
     <View style={styles.center}>
       <LogoWithName />
@@ -12,7 +17,7 @@ export default function HomeScreen() {
       <TouchableOpacity
         style={styles.botao_home}
         color={colors.primary}
-        onPress={() => navigation.navigate(" Ensino Fundamental")}
+        onPress={() => handleNavigation("Ensino Fundamental")}
       >
         <Text style={styles.btn_text}>Ensino Fundamental</Text>
       </TouchableOpacity>
@@ -20,7 +25,7 @@ export default function HomeScreen() {
       <TouchableOpacity
         style={styles.botao_home}
         color={colors.primary}
-        onPress={() => navigation.navigate("Ensino Medio")}
+        onPress={() => handleNavigation("Ensino Medio")}
       >
         <Text style={styles.btn_text}>Ensino Medio</Text>
       </TouchableOpacity>

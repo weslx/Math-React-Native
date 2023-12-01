@@ -84,7 +84,7 @@ function MedioRoutes() {
         component={CongruencCalculator}
       />
       <Stack.Screen
-        name=" Ensino Fundamental"
+        name="Ensino Fundamental"
         component={FundamentalScreen}
         options={{
           headerStyle: { backgroundColor: colors.primary },

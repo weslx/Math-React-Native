@@ -6,35 +6,19 @@ import { useNavigation } from "@react-navigation/native";
 const FundamentalScreen = () => {
   const navigation = useNavigation();
 
+  const years = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  const renderButton = (year) => {
+    return (
+      <TouchableOpacity key={year} style={styles.button}>
+        <Text style={styles.text}>{year}º Ano</Text>
+      </TouchableOpacity>
+    );
+  };
+
   return (
     <View style={styles.center}>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.text}>1 Ano</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.text}>2 Ano</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.text}>3 Ano</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.text}>4 Ano</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.text}>5 Ano</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.text}>6 Ano</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.text}>7 Ano</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.text}>8 Ano</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.text}>9 Ano</Text>
-      </TouchableOpacity>
+      {years.map(renderButton)}
 
       {/* Adicione esta View por cima de tudo */}
       <View style={styles.lockScreen}>
