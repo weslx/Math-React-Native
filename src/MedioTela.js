@@ -1,5 +1,5 @@
 import React from "react";
-import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
+import { View, TouchableOpacity, Text, StyleSheet, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import colors from "../colors";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -65,12 +65,21 @@ const MedioTela = () => {
       >
         <Text style={styles.text}>Matriz</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate(" ")}
-      >
-        <Text style={styles.text}></Text>
-      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button1}></TouchableOpacity>
+      <LogoWithName />
+    </View>
+  );
+};
+
+const LogoWithName = () => {
+  return (
+    <View>
+      <Image
+        source={require("../assets/mathchild.png")}
+        style={styles.logo}
+        resizeMode="contain"
+      />
     </View>
   );
 };
@@ -97,10 +106,25 @@ const styles = StyleSheet.create({
     borderWidth: 4,
     borderRadius: 40,
   },
+  button1: {
+    justifyContent: "center",
+    alignItems: "center",
+    height: 50,
+    width: 150,
+    backgroundColor: colors.white,
+    borderWidth: 0,
+    borderRadius: 40,
+  },
   text: {
     fontWeight: "bold",
     fontSize: 15,
     color: "white",
+  },
+  logo: {
+    width: 180,
+    marginBottom: 10,
+    height: 290,
+    marginLeft: 180,
   },
 });
 
