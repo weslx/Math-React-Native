@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "easy math",
-    "slug": "easy math",
+    "slug": "easy-math",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -11,7 +11,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -27,7 +29,12 @@
       "bundler": "metro"
     },
     "sdkVersion": "49.0.0",
-    "extra": {}
+    "extra": {
+      "eas": {
+        "projectId": "d649d1ee-e247-4078-ac67-5d3a1f6ab0c0"
+      }
+    },
+    "owner": "weslx"
   },
   "name": "easy math"
 }
