@@ -6,8 +6,8 @@ import {
   Text,
   StyleSheet,
   Dimensions,
-  Picker,
 } from "react-native";
+import { Picker } from "@react-native-picker/picker";
 
 const Matriz = () => {
   const [rowsA, setRowsA] = useState(0);

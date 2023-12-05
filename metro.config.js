@@ -1,5 +1,5 @@
-// metro.config.js
+const { getDefaultConfig } = require("expo/metro-config");
 
-module.exports = {
-  // Configurações podem ser adicionadas aqui conforme necessário
-};
+const config = getDefaultConfig(__dirname);
+
+module.exports = config;
