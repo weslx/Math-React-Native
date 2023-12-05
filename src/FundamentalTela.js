@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
     gap: 20,
     backgroundColor: colors.background,
     marginBottom: 10,
+    backgroundColor: "rgba(0, 0, 0, 0.4)",
   },
   button: {
     justifyContent: "center",
@@ -72,9 +73,9 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     justifyContent: "center",
-    height: 700,
+    height: "100%",
     alignItems: "center",
-    backgroundColor: "rgba(0, 0, 0, 0.6)",
+    backgroundColor: "rgba(0, 0, 0, 0.4)",
     zIndex: 1,
   },
   lockImage: {
