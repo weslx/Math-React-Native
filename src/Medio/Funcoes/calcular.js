@@ -1,4 +1,4 @@
-import { Text } from "react-native-web";
+import { Text } from "react-native";
 const calcular = (a, b, c, aa, bb, cc) => {
   try {
     const numA = parseInt(a) || 0;
