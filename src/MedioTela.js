@@ -11,65 +11,7 @@ const MedioTela = () => {
 
   return (
     <View style={styles.center}>
-      <Logohead />
-
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate("Juros Compostos")}
-      >
-        <Text style={styles.text}>Juros Compostos</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate("Juros Simples")}
-      >
-        <Text style={styles.text}>Juros Simples</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate("Senos")}
-      >
-        <Text style={styles.text}>Lei de Senos</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate("Cossenos")}
-      >
-        <Text style={styles.text}>Lei de Cossenos</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate("Funções")}
-      >
-        <Text style={styles.text}>Funções de 2°</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate("Logaritma")}
-      >
-        <Text style={styles.text}>Logaritma</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate("Exponenciação")}
-      >
-        <Text style={styles.text}>Exponenciação</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate("Radiciação")}
-      >
-        <Text style={styles.text}>Radiciação</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate("Matriz")}
-      >
-        <Text style={styles.text}>Matriz</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.button1}></TouchableOpacity>
-      <LogoWithName />
+      <Text>Teste</Text>
     </View>
   );
 };
