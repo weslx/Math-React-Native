@@ -34,7 +34,7 @@ const Segundograu = () => {
           <View style={styles.inputContainer}>
             <TextInput
               style={styles.input}
-              placeholder=""
+              placeholder="1"
               keyboardType="numeric"
               value={aa}
               onChangeText={(text) => setAa(text)}
@@ -48,7 +48,7 @@ const Segundograu = () => {
           <View style={styles.inputContainer}>
             <TextInput
               style={styles.input}
-              placeholder=""
+              placeholder="1"
               keyboardType="numeric"
               value={b}
               onChangeText={(text) => setB(text)}
@@ -57,7 +57,7 @@ const Segundograu = () => {
           <View style={styles.inputContainer}>
             <TextInput
               style={styles.input}
-              placeholder=""
+              placeholder="1"
               keyboardType="numeric"
               value={bb}
               onChangeText={(text) => setBb(text)}
@@ -71,7 +71,7 @@ const Segundograu = () => {
           <View style={styles.inputContainer}>
             <TextInput
               style={styles.input}
-              placeholder="-100"
+              placeholder="1"
               keyboardType="numeric"
               value={c}
               onChangeText={(text) => setC(text)}
@@ -80,7 +80,7 @@ const Segundograu = () => {
           <View style={styles.inputContainer}>
             <TextInput
               style={styles.input}
-              placeholder=""
+              placeholder="1"
               keyboardType="numeric"
               value={cc}
               onChangeText={(text) => setCc(text)}

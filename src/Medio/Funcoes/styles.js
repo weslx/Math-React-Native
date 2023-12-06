@@ -2,12 +2,13 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   between: {
+    flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
   },
   inputGroup: {
-    flexDirection: "row",
+    flexDirection: "column",
     marginBottom: 10,
-    display: "flex",
   },
   inputContainer: {
     borderBottomWidth: 3,
