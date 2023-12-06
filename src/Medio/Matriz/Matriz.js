@@ -101,12 +101,12 @@ const Matriz = () => {
             <View style={styles.column}>
               <Text>Matriz A</Text>
               <TextInput
-                style={styles.input}
+                style={styles.input1}
                 placeholder="Linhas"
                 onChangeText={(text) => setRowsA(parseInt(text))}
               />
               <TextInput
-                style={styles.input}
+                style={styles.input1}
                 placeholder="Colunas"
                 onChangeText={(text) => setColsA(parseInt(text))}
               />
@@ -115,12 +115,12 @@ const Matriz = () => {
               <View style={styles.column}>
                 <Text>Matriz B</Text>
                 <TextInput
-                  style={styles.input}
+                  style={styles.input1}
                   placeholder="Linhas"
                   onChangeText={(text) => setRowsB(parseInt(text))}
                 />
                 <TextInput
-                  style={styles.input}
+                  style={styles.input1}
                   placeholder="Colunas"
                   onChangeText={(text) => setColsB(parseInt(text))}
                 />
@@ -128,15 +128,18 @@ const Matriz = () => {
             )}
           </View>
           <Button title="Criar Matrizes" onPress={createMatrices} />
-          <View style={styles.row}>
+          <View style={styles.column}>
             {matrixA.length > 0 && (
-              <View>
+              <View style={{ margin: 10 }}>
                 <Text>Matriz A</Text>
                 {matrixA.map((row, i) => (
                   <View key={i} style={{ flexDirection: "row" }}>
                     {row.map((col, j) => (
                       <TextInput
-                        style={[styles.input, { width: windowWidth / colsA }]}
+                        style={[
+                          styles.input,
+                          { width: (windowWidth - 50) / colsA },
+                        ]} // Subtraia a margem total aqui
                         key={j}
                         onChangeText={(text) => {
                           let temp = [...matrixA];
@@ -150,13 +153,16 @@ const Matriz = () => {
               </View>
             )}
             {matrixB.length > 0 && (
-              <View>
+              <View style={{ margin: 10 }}>
                 <Text>Matriz B</Text>
                 {matrixB.map((row, i) => (
                   <View key={i} style={{ flexDirection: "row" }}>
                     {row.map((col, j) => (
                       <TextInput
-                        style={[styles.input, { width: windowWidth / colsB }]}
+                        style={[
+                          styles.input,
+                          { width: (windowWidth - 50) / colsB },
+                        ]} // Subtraia a margem total aqui
                         key={j}
                         onChangeText={(text) => {
                           let temp = [...matrixB];
@@ -170,6 +176,7 @@ const Matriz = () => {
               </View>
             )}
           </View>
+
           {operation === "mul" && matrixA.length > 0 && (
             <View>
               <TextInput
@@ -221,20 +228,27 @@ const Matriz = () => {
 };
 
 const styles = StyleSheet.create({
-  input: {
-    height: 50, // Aumente a altura aqui
+  input1: {
+    height: 40,
+    width: 80,
     borderColor: "gray",
     borderWidth: 1,
-    flex: 1,
     margin: 5,
   },
-  row: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+  input: {
+    height: 40,
+    borderColor: "gray",
+    borderWidth: 1,
+    margin: 5,
   },
   column: {
     flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "center",
+    margin: 10, // Adicione margem aqui
+  },
+  row: {
+    flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
   },

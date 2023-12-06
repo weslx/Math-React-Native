@@ -69,7 +69,9 @@ const MedioTela = () => {
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.button1}></TouchableOpacity>
-      <LogoWithName />
+      <View style={styles.logoContainer}>
+        <LogoWithName />
+      </View>
     </View>
   );
 };
@@ -105,7 +107,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     gap: 8,
-
     backgroundColor: colors.background,
   },
 
@@ -133,14 +134,19 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: "white",
   },
+  logoContainer: {
+    justifyContent: "flex-end",
+    width: "100%",
+    flexShrink: 1, // Adicionando flexShrink para evitar o wrap
+  },
   logo: {
     width: 180,
-    marginBottom: 10,
+    alignSelf: "flex-end",
     height: 290,
-    marginLeft: 180,
   },
   logo1: {
     height: 190,
+    width: 400,
   },
 });
 
