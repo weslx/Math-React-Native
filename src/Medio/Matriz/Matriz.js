@@ -6,6 +6,7 @@ import {
   Text,
   StyleSheet,
   Dimensions,
+  ScrollView,
 } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 
@@ -86,7 +87,7 @@ const Matriz = () => {
   };
 
   return (
-    <View>
+    <ScrollView>
       <Picker selectedValue={operation} onValueChange={resetOperation}>
         <Picker.Item label="Selecione uma operação" value="" />
         <Picker.Item label="Adição" value="add" />
@@ -215,13 +216,13 @@ const Matriz = () => {
           )}
         </>
       )}
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   input: {
-    height: 40,
+    height: 50, // Aumente a altura aqui
     borderColor: "gray",
     borderWidth: 1,
     flex: 1,
