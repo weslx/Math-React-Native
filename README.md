@@ -7,6 +7,10 @@
 
 ## Sobre o Projeto
 
+<p align="center">
+   <img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=RED&style=for-the-badge" #vitrinedev/>
+</p>
+
 Este projeto é um aplicativo de matemática construído com React Native e Expo, que usa a BNCC brasileira para resolver problemas matemáticos. Atualmente, ele pode resolver funções de segundo grau, matrizes entre outras.
 
 ![Math](https://i.postimg.cc/MTNFdCZK/easymath.png)
@@ -19,7 +23,7 @@ Este projeto é um aplicativo de matemática construído com React Native e Expo
 npm install npm@latest -g
 ```
 
-Instalação Clone o repositório
+- Clone o repositório
 
 ```sh
 git clone https://github.com/weslx/Math-React-Native.git
@@ -31,13 +35,13 @@ git clone https://github.com/weslx/Math-React-Native.git
 npm i
 ```
 
--Rode a aplicação para android
+- Rode a aplicação para android
 
 ```sh
 npm run android
 ```
 
--Rode a aplicação no navegador
+- Rode a aplicação no navegador
 
 ```sh
 npm run web
@@ -46,3 +50,8 @@ npm run web
 ### Licença
 
 Distribuído sob a licença MIT.
+
+### Agradecimentos
+
+| [<img src="https://avatars.githubusercontent.com/u/128839442?v=4" width=115><br><sub>Arthur Spolti</sub>](https://github.com/arthurlspolti) | [<img src="https://avatars.githubusercontent.com/u/118075509?v=4" width=115><br><sub>Leonardo</sub>](https://github.com/leofelixpro) | [<img src="https://avatars.githubusercontent.com/u/80607779?v=4" width=115><br><sub>Leonardo</sub>](https://github.com/weslx) |
+| :-----------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------: | ----------------------------------------------------------------------------------------------------------------------------- |
