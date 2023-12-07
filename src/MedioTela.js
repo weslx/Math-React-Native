@@ -89,7 +89,7 @@ const LogoWithName = () => {
 };
 const Logohead = () => {
   return (
-    <View>
+    <View style={styles.logoContainer2}>
       <Image
         source={require("../assets/logo_alternativa.png")}
         style={styles.logo1}
@@ -139,10 +139,12 @@ const styles = StyleSheet.create({
     width: "100%",
     flexShrink: 1, // Adicionando flexShrink para evitar o wrap
   },
+
   logo: {
     width: 180,
     alignSelf: "flex-end",
-    height: 290,
+    height: 130,
+    marginBottom: 100,
   },
   logo1: {
     height: 190,
