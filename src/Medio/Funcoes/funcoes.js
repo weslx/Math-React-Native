@@ -91,7 +91,9 @@ const Segundograu = () => {
       <Text style={styles.equationText}>= 0</Text>
 
       <Button title="Calcular" onPress={handleCalcular} />
-      <Text>{result}</Text>
+      <View>
+        <Text>{result}</Text>
+      </View>
     </View>
   );
 };

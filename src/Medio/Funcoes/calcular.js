@@ -1,4 +1,22 @@
-import { Text } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
+
+const styles = StyleSheet.create({
+  errorText: {
+    color: "red",
+    fontSize: 16,
+  },
+  resultText: {
+    color: "black",
+    fontSize: 14,
+  },
+  deltaCalculation: {
+    marginLeft: 20,
+  },
+  bhaskaraApplication: {
+    marginLeft: 40,
+  },
+});
+
 const calcular = (a, b, c, aa, bb, cc) => {
   try {
     const numA = parseInt(a) || 0;
@@ -17,7 +35,7 @@ const calcular = (a, b, c, aa, bb, cc) => {
       isNaN(numCc)
     ) {
       return (
-        <Text>
+        <Text style={styles.errorText}>
           Erro! Por favor, verifique os valores inseridos nos campos e tente
           novamente!
           {"\n"}
@@ -34,7 +52,7 @@ const calcular = (a, b, c, aa, bb, cc) => {
     ev = ev.toFixed(2);
 
     let res = (
-      <Text>
+      <Text style={styles.resultText}>
         1) Calculando o Δ da equação completa:
         {"\n"}Δ = b² - 4ac
         {"\n"}Δ = {numB}/{numBb}² - 4 * {numA}/{numAa} * {numC}/{numCc}
@@ -43,15 +61,13 @@ const calcular = (a, b, c, aa, bb, cc) => {
       </Text>
     );
 
-    // ... (código anterior)
-
     if (delta > 0) {
       res = (
         <>
           {res}
-          <Text>Há 2 raízes reais.</Text>
-          <Text>2) Aplicando Bhaskara:</Text>
-          <View style={{ marginLeft: 20 }}>
+          <Text style={styles.resultText}>Há 2 raízes reais.</Text>
+          <Text style={styles.deltaCalculation}>2) Aplicando Bhaskara:</Text>
+          <View style={styles.bhaskaraApplication}>
             <Text>x = (-b ± √Δ)/2a</Text>
             <Table>
               <Row data={["x'", "", "x''"]} />
@@ -72,9 +88,9 @@ const calcular = (a, b, c, aa, bb, cc) => {
       res = (
         <>
           {res}
-          <Text>Há 1 raiz real.</Text>
-          <Text>2) Aplicando Bhaskara:</Text>
-          <View style={{ marginLeft: 20 }}>
+          <Text style={styles.resultText}>Há 1 raiz real.</Text>
+          <Text style={styles.deltaCalculation}>2) Aplicando Bhaskara:</Text>
+          <View style={styles.bhaskaraApplication}>
             <Text>Neste caso, x' = x''</Text>
             <Text>x = (-b ± √Δ)/2a</Text>
             <Table>
@@ -105,7 +121,7 @@ const calcular = (a, b, c, aa, bb, cc) => {
       res = (
         <>
           {res}
-          <Text>Não há raízes reais.</Text>
+          <Text style={styles.resultText}>Não há raízes reais.</Text>
         </>
       );
     }
@@ -113,7 +129,7 @@ const calcular = (a, b, c, aa, bb, cc) => {
     return res;
   } catch (error) {
     return (
-      <Text>
+      <Text style={styles.errorText}>
         Erro! Por favor, verifique os valores inseridos nos campos e tente
         novamente!
         {"\n"}
@@ -123,4 +139,5 @@ const calcular = (a, b, c, aa, bb, cc) => {
   }
 };
 
+// Time complexity: O(1) = constante
 export default calcular;
