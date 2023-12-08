@@ -20,12 +20,14 @@ function MedioRoutes() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="  "
+        name="Inicial"
         component={HomeScreen}
         options={{
-          headerStyle: { backgroundColor: "#f2f2f2" },
+          headerTransparent: true,
+          title: "",
         }}
       />
+
       <Stack.Screen
         name="Funções"
         component={Segundograu}
