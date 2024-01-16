@@ -10,16 +10,20 @@ const FundamentalScreen = () => {
 
   const renderButton = (year) => {
     return (
-      <TouchableOpacity key={year} style={styles.button}>
+      <TouchableOpacity
+        key={year}
+        className="flex justify-center items-center h-12 w-36 bg-emerald-500 border-2 rounded-lg mt"
+      >
         <Text style={styles.text}>{year}º Ano</Text>
       </TouchableOpacity>
     );
   };
 
   return (
-    <View style={styles.center}>
-      {years.map(renderButton)}
-
+    <View className="flex justify-center items-center h-screen gap-4 flex-row flex-wrap ">
+      <View className="flex justify-center items-center gap-4">
+        {years.map(renderButton)}
+      </View>
       {/* Adicione esta View por cima de tudo */}
       <View style={styles.lockScreen}>
         <LockImage />
