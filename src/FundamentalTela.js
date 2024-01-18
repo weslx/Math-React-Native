@@ -21,7 +21,7 @@ const FundamentalScreen = () => {
 
   return (
     <View className="flex justify-center items-center h-screen gap-4 flex-row flex-wrap bg-background">
-      <View className="flex justify-center items-center gap-4">
+      <View className="flex justify-center items-center gap-4 pt-3.5">
         {years.map(renderButton)}
       </View>
       {/* Adicione esta View por cima de tudo */}
