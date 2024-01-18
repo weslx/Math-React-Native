@@ -12,7 +12,7 @@ const FundamentalScreen = () => {
     return (
       <TouchableOpacity
         key={year}
-        className="flex justify-center items-center h-12 w-36 bg-emerald-500 border-2 rounded-lg mt"
+        className="flex justify-center items-center h-12 w-36 bg-primary border-2 rounded-lg mt"
       >
         <Text style={styles.text}>{year}º Ano</Text>
       </TouchableOpacity>
@@ -20,7 +20,7 @@ const FundamentalScreen = () => {
   };
 
   return (
-    <View className="flex justify-center items-center h-screen gap-4 flex-row flex-wrap ">
+    <View className="flex justify-center items-center h-screen gap-4 flex-row flex-wrap bg-background">
       <View className="flex justify-center items-center gap-4">
         {years.map(renderButton)}
       </View>
