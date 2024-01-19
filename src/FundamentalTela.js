@@ -12,7 +12,7 @@ const FundamentalScreen = () => {
     return (
       <TouchableOpacity
         key={year}
-        className="flex justify-center items-center h-12 w-36 bg-primary border-2 rounded-lg mt"
+        className="flex justify-center items-center h-12 w-36 bg-primary  rounded-full mt"
       >
         <Text style={styles.text}>{year}º Ano</Text>
       </TouchableOpacity>
